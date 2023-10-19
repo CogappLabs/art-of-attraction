@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { getAnswers } from '../utils/getAnswers';
 
-const RadioOptions = ({ artworks, setArtworks }) => {
+const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress }) => {
     const [customOption, setCustomOption] = useState('');
     const [counter, setCounter] = useState(3);
     const [finalChoice, setFinalChoice] = useState('');
@@ -22,6 +22,9 @@ const RadioOptions = ({ artworks, setArtworks }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        setIsInProgress(true);
+
         if (counter > 1) {
             setCounter(counter - 1);
         } else if (counter === 1) {
@@ -31,7 +34,7 @@ const RadioOptions = ({ artworks, setArtworks }) => {
         const formData = new FormData(event.target);
         const selectedValue = formData.get('radioOptions');
 
-        getAnswers(selectedValue, artworks, setArtworks);
+        getAnswers(selectedValue, artworks, setArtworks, setIsInProgress);
     };
 
     return (
@@ -66,7 +69,10 @@ const RadioOptions = ({ artworks, setArtworks }) => {
                                 className="ml-2"
                             />
                         </div>
-                        <button type="submit" className="rounded bg-pink-600 text-white p-2 hover:bg-pink-800">Ask Question</button>
+                        <button type="submit" className="rounded bg-pink-600 text-white p-2 hover:bg-pink-800">
+                            Ask Question
+                        </button>
+                        <p className={isInProgress ? 'mt-4 text-pink-600 font-bold' : 'hidden'}>Please give the artworks some time to think of their replies... it may take some time.</p>
                     </form>
                 </div>
             )}
