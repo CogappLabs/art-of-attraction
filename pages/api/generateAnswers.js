@@ -6,7 +6,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export default async function handler(req, res) {
-  const { prompt } = req.body;
+  const { prompt, artworks } = req.body;
 
     if (req.method !== 'POST') {
         res.status(405).json({ message: 'Method Not Allowed' });
@@ -14,26 +14,29 @@ export default async function handler(req, res) {
     }
 
     try {
-    const promptProp = `Please answer the following question based on the themes of the painting “The Boating Party” by “Mary Cassatt”. 
-    Your answers should be in first person, as though it’s the painting itself that is answering. Don’t include any mention of the artwork 
-    title, the artists name, or describe anything about the painting itself. Simply use the painting as the inspiration for your answers.
-    Question: ${prompt}`;
+      const promptResponses = [];
 
-    // const roleContent = genericCritic;
-    const response = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      max_tokens: 200,
-      messages: [
-        { role: "system", content: 'You are a helpful assistant.' },
-        { role: "user", content: promptProp },
-      ],
-    });
+      for (let i = 0; i < artworks.length; i++) {
+          const { title, attribution } = artworks[i];
+          const promptProp = `Please answer the following question based on the themes of the painting "${title}" by "${attribution}". 
+          Your answers should be in first person, as though it’s the painting itself that is answering. Don’t include any mention of the artwork 
+          title, the artists name, or describe anything about the painting itself. Simply use the painting as the inspiration for your answers.
+          Question: ${prompt}`;
 
-    const generatedResponse = response.data.choices[0].message.content;
+          const response = await openai.createChatCompletion({
+              model: "gpt-3.5-turbo",
+              max_tokens: 200,
+              messages: [
+                  { role: "system", content: 'You are a helpful assistant.' },
+                  { role: "user", content: promptProp },
+              ],
+          });
 
-    console.log(generatedResponse);
+          const generatedResponse = response.data.choices[0].message.content;
+          promptResponses.push(generatedResponse);
+      }
 
-    res.status(200).json(generatedResponse);
+      res.status(200).json(promptResponses);
 
     } catch (error) {
         console.error('Error:', error);

@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { getAnswers } from '../utils/getAnswers';
 
-const RadioOptions = () => {
-    const apiKey = process.env.OPENAI_API_KEY;
+const RadioOptions = ({ artworks, setArtworks }) => {
     const [customOption, setCustomOption] = useState('');
     const [counter, setCounter] = useState(3);
     const [finalChoice, setFinalChoice] = useState('');
@@ -31,37 +31,14 @@ const RadioOptions = () => {
         const formData = new FormData(event.target);
         const selectedValue = formData.get('radioOptions');
 
-        GetAnswers(selectedValue);
-    };
-
-    const GetAnswers = async (question) => {
-        try {
-            const prompt = question;
-    
-            const response = await fetch("/api/generateAnswers", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${apiKey}`,
-            },
-            body: JSON.stringify({
-                prompt: prompt
-            }),
-        });
-        const data = await response.json();
-    
-        console.log(data);
-    
-        } catch (error) {
-            console.error("Error:", error);
-        }
+        getAnswers(selectedValue, artworks, setArtworks);
     };
 
     return (
         <div>
             {counter !== 'Final' && (
                 <div>
-                    <p>
+                    <p className="mb-2">
                         <span className="text-pink-600 text-xl font-bold">{counter !== 1 ? `${counter} ` : 'Final '}</span>
                         {counter !== 1 ? `Questions Remaining` : 'Question'}
                     </p>
