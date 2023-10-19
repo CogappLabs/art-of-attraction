@@ -14,7 +14,10 @@ export default async function handler(req, res) {
     }
 
     try {
-    const promptProp = `${prompt}`;
+    const promptProp = `Please answer the following question based on the themes of the painting “The Boating Party” by “Mary Cassatt”. 
+    Your answers should be in first person, as though it’s the painting itself that is answering. Don’t include any mention of the artwork 
+    title, the artists name, or describe anything about the painting itself. Simply use the painting as the inspiration for your answers.
+    Question: ${prompt}`;
 
     // const roleContent = genericCritic;
     const response = await openai.createChatCompletion({

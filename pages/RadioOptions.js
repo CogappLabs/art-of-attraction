@@ -36,26 +36,26 @@ const RadioOptions = () => {
 
     const GetAnswers = async (question) => {
         try {
-          const prompt = question;
+            const prompt = question;
     
-          const response = await fetch("/api/generateAnswers", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization": `Bearer ${apiKey}`,
+            const response = await fetch("/api/generateAnswers", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${apiKey}`,
             },
             body: JSON.stringify({
-              prompt: prompt
+                prompt: prompt
             }),
-          });
-          const data = await response.json();
+        });
+        const data = await response.json();
     
-          console.log(data);
+        console.log(data);
     
         } catch (error) {
-          console.error("Error:", error);
+            console.error("Error:", error);
         }
-      };
+    };
 
     return (
         <div>
