@@ -206,7 +206,7 @@ export default function Home() {
       <p className="mb-2"><span className="font-bold text-pink-600">How to use:</span> Ask three hidden artworks three questions, then pick your favourite based on their answers!</p>
 
       <RadioOptions artworks={artworks} setArtworks={setArtworks} isInProgress={isInProgress} setIsInProgress={setIsInProgress}/>
-      <ArtworkGrid artworks={artworks}/>
+      <ArtworkGrid artworks={artworks} isInProgress={isInProgress}/>
 
     </div>
   );
