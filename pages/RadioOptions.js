@@ -79,7 +79,7 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress }) 
             {counter === 'Final' && (
                 <div>
                     <form className="mb-4">
-                        <p>Will you pick number 1, number 2, or number 3? The choice is yours!</p>
+                        <p>Will you pick <span className="text-pink-600 font-bold">Number 1</span>, <span className="text-pink-600 font-bold">Number 2</span>, or <span className="text-pink-600 font-bold">Number 3</span>? The choice is yours!</p>
                         {finalOptions.map((option, index) => (
                             <div key={index} className="mb-2">
                                 <input
