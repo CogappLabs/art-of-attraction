@@ -1,9 +1,15 @@
 import { useState } from 'react';
 
-const FinalChoice = ({ isInProgress }) => {
+const FinalChoice = ({ isInProgress, reveal, setReveal }) => {
     const [finalChoice, setFinalChoice] = useState('');
 
     const finalOptions = ['Number 1', 'Number 2', 'Number 3'];
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        setReveal(true);
+    };
 
     const handleFinalChoiceChange = (event) => {
         setFinalChoice(event.target.value);
@@ -11,7 +17,7 @@ const FinalChoice = ({ isInProgress }) => {
 
     return (
         <div>
-            <form className={isInProgress ? 'hidden' : 'mb-4'}>
+            <form onSubmit={handleSubmit} className={isInProgress ? 'hidden' : 'mb-4'}>
                 <p>Will you pick <span className="text-pink-600 font-bold">Number 1</span>, <span className="text-pink-600 font-bold">Number 2</span>, or <span className="text-pink-600 font-bold">Number 3</span>? The choice is yours!</p>
                 {finalOptions.map((option, index) => (
                     <div key={index} className="mb-2">

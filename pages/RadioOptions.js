@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { getAnswers } from '../utils/getAnswers';
 import FinalChoice from './FinalChoice'
 
-const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, counter, setCounter }) => {
+const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, counter, setCounter, reveal, setReveal }) => {
     const [customOption, setCustomOption] = useState('');
 
     const options = ['I love spending time looking at beautiful scenery, do you think I\'ll enjoy looking at you?', 
@@ -69,7 +69,7 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, co
                 </div>
             )}
             <p className={isInProgress ? 'mb-4 text-pink-600 font-bold' : 'hidden'}>Please give the artworks some time to think of their replies... it may take some time.</p>
-            {counter === 'Final' && !isInProgress && <FinalChoice isInProgress={isInProgress}/>}
+            {counter === 'Final' && !isInProgress && <FinalChoice isInProgress={isInProgress} reveal={reveal} setReveal={setReveal}/>}
         </div>
     );
 };
