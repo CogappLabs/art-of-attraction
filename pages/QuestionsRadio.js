@@ -4,18 +4,18 @@ import FinalChoice from './FinalChoice';
 import { AppStateContext } from './AppState'
 
 const QuestionsRadio = () => {
-    const { artworks, setArtworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, revealImage, setRevealImage, buttonDisabled, setButtonDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
+    const { artworks, setArtworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, setReset } = useContext(AppStateContext);
     
-    const [customOption, setCustomOption] = useState('');
-    const [isCustomOptionChecked, setIsCustomOptionChecked] = useState(false);
+    const [customQuestion, setCustomQuestion] = useState('');
+    const [isCustomQuestionChecked, setIsCustomQuestionChecked] = useState(false);
 
-    const options = ['I love spending time looking at beautiful scenery, do you think I\'ll enjoy looking at you?', 
+    const questions = ['I love spending time looking at beautiful scenery, do you think I\'ll enjoy looking at you?', 
     'My home is filled with interesting objects that each have a unique story, do you think you\'d fit in there?', 
     'I\'m drawn to thought-provoking and emotionally charged art. Can you evoke strong feelings or reflections in me?'];
 
-    const handleCustomOptionChange = (event) => {
-        setCustomOption(event.target.value);
-        setIsCustomOptionChecked(event.target.checked);
+    const handleCustomQuestionChange = (event) => {
+        setCustomQuestion(event.target.value);
+        setIsCustomQuestionChecked(event.target.checked);
     };
 
     const handleSubmit = (event) => {
@@ -28,7 +28,7 @@ const QuestionsRadio = () => {
         const selectedValue = formData.get('radioOptions');
 
         getAnswers(selectedValue, artworks, setArtworks, setInProgress, remainingQuestions, setRemainingQuestions);
-        setCustomOption('');
+        setCustomQuestion('');
     };
 
     return (
@@ -36,26 +36,37 @@ const QuestionsRadio = () => {
             {(remainingQuestions !== 'Final' || (remainingQuestions === 'Final' && inProgress)) && (
                 <div>
                     <p className="mb-2">
-                        <span className="text-pink-600 text-xl font-bold">{remainingQuestions !== 1 ? `${remainingQuestions} ` : 'Final '}</span>
+                        <span className="text-pink-600 text-xl font-bold">
+                            {remainingQuestions !== 1 ? `${remainingQuestions} ` : 'Final '}
+                        </span>
+                        
                         {remainingQuestions !== 1 ? `Questions Remaining` : 'Question'}
+
                     </p>
                     <form onSubmit={handleSubmit} className="mb-4">
-                        {options.map((option, index) => (
+                        {questions.map((question, index) => (
                             <div key={index} className="mb-2">
-                                <label htmlFor={option}>
-                                    <input type="radio" id={option} name="radioOptions" value={option} className="mr-2" required/>
-                                    {option}
+                                <label htmlFor={question}>
+                                    <input 
+                                        type="radio" 
+                                        id={question} 
+                                        name="radioOptions" 
+                                        value={question} 
+                                        className="mr-2" 
+                                        required
+                                    />
+                                    {question}
                                 </label>
                             </div>
                         ))}
                         <div className="mb-2">
-                            <label htmlFor="customOption">
+                            <label htmlFor="customQuestion">
                                 <input
                                     type="radio"
-                                    id="customOption"
+                                    id="customQuestion"
                                     name="radioOptions"
-                                    value={customOption}
-                                    onChange={handleCustomOptionChange}
+                                    value={customQuestion}
+                                    onChange={handleCustomQuestionChange}
                                     className="mr-2"
                                     required
                                 />
@@ -63,11 +74,11 @@ const QuestionsRadio = () => {
                             </label>
                             <input
                                 type="text"
-                                id="customOptionInput"
-                                value={customOption}
-                                onChange={handleCustomOptionChange}
+                                id="customQuestionInput"
+                                value={customQuestion}
+                                onChange={handleCustomQuestionChange}
                                 className="ml-2 p-0.5 w-60"
-                                required={isCustomOptionChecked}
+                                required={isCustomQuestionChecked}
                                 placeholder="e.g. Do you like piña coladas?"
                             />
                         </div>
@@ -77,10 +88,10 @@ const QuestionsRadio = () => {
                     </form>
                 </div>
             )}
-            <p className={inProgress ? 'mb-4 text-pink-600 font-bold' : 'hidden'}>Please give the artworks some time to think of their replies... it may take some time.</p>
-            {remainingQuestions === 'Final' && !inProgress && 
-                <FinalChoice />
-            }
+            <p className={inProgress ? 'mb-4 text-pink-600 font-bold' : 'hidden'}>
+                Please give the artworks some time to think of their replies... it may take some time.
+            </p>
+            {remainingQuestions === 'Final' && !inProgress && <FinalChoice />}
         </div>
     );
 };
