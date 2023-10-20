@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { getAnswers } from '../utils/getAnswers';
 import FinalChoice from './FinalChoice'
 
-const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, counter, setCounter, reveal, setReveal }) => {
+const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, counter, setCounter, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
     const [customOption, setCustomOption] = useState('');
 
     const options = ['I love spending time looking at beautiful scenery, do you think I\'ll enjoy looking at you?', 
@@ -17,6 +17,7 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, co
         event.preventDefault();
 
         setIsInProgress(true);
+        setReset(false);
 
         const formData = new FormData(event.target);
         const selectedValue = formData.get('radioOptions');
@@ -69,7 +70,19 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, co
                 </div>
             )}
             <p className={isInProgress ? 'mb-4 text-pink-600 font-bold' : 'hidden'}>Please give the artworks some time to think of their replies... it may take some time.</p>
-            {counter === 'Final' && !isInProgress && <FinalChoice isInProgress={isInProgress} reveal={reveal} setReveal={setReveal}/>}
+            {counter === 'Final' && !isInProgress && 
+                <FinalChoice 
+                    isInProgress={isInProgress} 
+                    reveal={reveal} 
+                    setReveal={setReveal} 
+                    disabled={disabled} 
+                    setDisabled={setDisabled} 
+                    reset={reset}
+                    setReset={setReset}  
+                    hideReset={hideReset}
+                    setHideReset={setHideReset}
+                />
+            }
         </div>
     );
 };

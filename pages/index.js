@@ -6,6 +6,10 @@ export default function Home() {
   const [counter, setCounter] = useState(3);
   const [isInProgress, setIsInProgress] = useState(false);
   const [reveal, setReveal] = useState([false, false, false]);
+  const [disabled, setDisabled] = useState(false);
+  const [reset, setReset] = useState(false);
+  const [hideReset, setHideReset] = useState(true);
+
   const [artworks, setArtworks] = useState([
     {
       "accessioned": "1",
@@ -215,9 +219,26 @@ export default function Home() {
         counter={counter} 
         setCounter={setCounter}
         reveal={reveal} 
-        setReveal={setReveal}/>
-      <ArtworkGrid artworks={artworks} isInProgress={isInProgress} reveal={reveal} setReveal={setReveal}/>
-
+        setReveal={setReveal}
+        disabled={disabled} 
+        setDisabled={setDisabled}
+        reset={reset}
+        setReset={setReset}
+        hideReset={hideReset}
+        setHideReset={setHideReset}/>
+      <ArtworkGrid 
+        artworks={artworks} 
+        isInProgress={isInProgress} 
+        counter={counter} 
+        setCounter={setCounter}
+        reveal={reveal} 
+        setReveal={setReveal}
+        disabled={disabled} 
+        setDisabled={setDisabled}
+        reset={reset}
+        setReset={setReset}
+        hideReset={hideReset}
+        setHideReset={setHideReset}/>
     </div>
   );
 }

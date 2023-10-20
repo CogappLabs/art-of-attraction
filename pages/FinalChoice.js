@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-const FinalChoice = ({ isInProgress, reveal, setReveal }) => {
+const FinalChoice = ({ isInProgress, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
     const [finalChoice, setFinalChoice] = useState('');
-    const [disabled, setDisabled] = useState(false);
+    // const [disabled, setDisabled] = useState(false);
 
     const finalOptions = ['Number 1', 'Number 2', 'Number 3'];
 
@@ -10,6 +10,7 @@ const FinalChoice = ({ isInProgress, reveal, setReveal }) => {
         event.preventDefault();
 
         setDisabled(true);
+        setHideReset(false);
 
         const formData = new FormData(event.target);
         const selectedValue = formData.get('finalOptions');
