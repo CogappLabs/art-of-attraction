@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Reset from './Reset'
 
-const ArtworkGrid = ({artworks, isInProgress, setIsInProgress, counter, setCounter, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
+const ArtworkGrid = ({artworks, isInProgress, setIsInProgress, remainingQuestions, setRemainingQuestions, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
     const baseUrl = "https://www.nga.gov/collection/art-object-page";
 
     const updateItemInReveal = (index, value) => {
@@ -58,7 +58,7 @@ const ArtworkGrid = ({artworks, isInProgress, setIsInProgress, counter, setCount
                 ))}
             </div>
 
-            { !hideReset && <Reset reveal={reveal} setReveal={setReveal} counter={counter} setCounter={setCounter} reset={reset} setReset={setReset} hideReset={hideReset} setHideReset={setHideReset}/> }
+            { !hideReset && <Reset reveal={reveal} setReveal={setReveal} remainingQuestions={remainingQuestions} setRemainingQuestions={setRemainingQuestions} reset={reset} setReset={setReset} hideReset={hideReset} setHideReset={setHideReset}/> }
         </>
     );
 };

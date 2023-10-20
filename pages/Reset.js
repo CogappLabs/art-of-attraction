@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-const Reset = ({reveal, setReveal, counter, setCounter, reset, setReset, hideReset, setHideReset }) => {
+const Reset = ({reveal, setReveal, remainingQuestions, setRemainingQuestions, reset, setReset, hideReset, setHideReset }) => {
     const handleSubmit = (event) => {
         event.preventDefault();   
         
         setReveal([false, false, false]);
-        setCounter(3);
+        setRemainingQuestions(3);
         setReset(true);
         setHideReset(true);
     };

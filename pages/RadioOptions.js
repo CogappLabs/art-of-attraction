@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { getAnswers } from '../utils/getAnswers';
 import FinalChoice from './FinalChoice'; 
 
-const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, counter, setCounter, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
+const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, remainingQuestions, setRemainingQuestions, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
     const [customOption, setCustomOption] = useState('');
     const [isCustomOptionChecked, setIsCustomOptionChecked] = useState(false);
 
@@ -24,17 +24,17 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, co
         const formData = new FormData(event.target);
         const selectedValue = formData.get('radioOptions');
 
-        getAnswers(selectedValue, artworks, setArtworks, setIsInProgress, counter, setCounter);
+        getAnswers(selectedValue, artworks, setArtworks, setIsInProgress, remainingQuestions, setRemainingQuestions);
         setCustomOption('');
     };
 
     return (
         <div>
-            {(counter !== 'Final' || (counter === 'Final' && isInProgress)) && (
+            {(remainingQuestions !== 'Final' || (remainingQuestions === 'Final' && isInProgress)) && (
                 <div>
                     <p className="mb-2">
-                        <span className="text-pink-600 text-xl font-bold">{counter !== 1 ? `${counter} ` : 'Final '}</span>
-                        {counter !== 1 ? `Questions Remaining` : 'Question'}
+                        <span className="text-pink-600 text-xl font-bold">{remainingQuestions !== 1 ? `${remainingQuestions} ` : 'Final '}</span>
+                        {remainingQuestions !== 1 ? `Questions Remaining` : 'Question'}
                     </p>
                     <form onSubmit={handleSubmit} className="mb-4">
                         {options.map((option, index) => (
@@ -75,7 +75,7 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, co
                 </div>
             )}
             <p className={isInProgress ? 'mb-4 text-pink-600 font-bold' : 'hidden'}>Please give the artworks some time to think of their replies... it may take some time.</p>
-            {counter === 'Final' && !isInProgress && 
+            {remainingQuestions === 'Final' && !isInProgress && 
                 <FinalChoice 
                     isInProgress={isInProgress} 
                     reveal={reveal} 
