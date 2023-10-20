@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { AppStateContext } from './AppState'
 
 const FinalChoice = () => {
-    const { inProgress, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
+    const { inProgress, revealImage, setRevealImage, disabled, setDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
     const [finalChoice, setFinalChoice] = useState('');
 
     const finalOptions = ['Number 1', 'Number 2', 'Number 3'];
@@ -17,11 +17,11 @@ const FinalChoice = () => {
         const selectedValue = formData.get('finalOptions');
 
         if (selectedValue === 'Number 1') {
-            setReveal([true, false, false]);
+            setRevealImage([true, false, false]);
         } else if (selectedValue === 'Number 2') {
-            setReveal([false, true, false]);
+            setRevealImage([false, true, false]);
         } else {
-            setReveal([false, false, true]);
+            setRevealImage([false, false, true]);
         }
 
         

@@ -4,12 +4,12 @@ import Reset from './Reset'
 import { AppStateContext } from './AppState'
 
 const ArtworkGrid = () => {
-    const { artworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
+    const { artworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, revealImage, setRevealImage, disabled, setDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
     const baseUrl = "https://www.nga.gov/collection/art-object-page";
 
-    const updateItemInReveal = (index, value) => {
-        const updatedReveal = reveal.map((item, i) => (i === index ? value : item));
-        setReveal(updatedReveal);
+    const updateItemInRevealImage = (index, value) => {
+        const updatedRevealImage = revealImage.map((item, i) => (i === index ? value : item));
+        setRevealImage(updatedRevealImage);
     };
 
     const handleSubmit = (event) => {
@@ -19,11 +19,11 @@ const ArtworkGrid = () => {
         const selectedValue = formData.get('index');
 
         if (selectedValue === '0') {
-            updateItemInReveal(0, true);
+            updateItemInRevealImage(0, true);
         } else if (selectedValue === '1') {
-            updateItemInReveal(1, true);
+            updateItemInRevealImage(1, true);
         } else {
-            updateItemInReveal(2, true);
+            updateItemInRevealImage(2, true);
         }      
     };
 
@@ -33,20 +33,20 @@ const ArtworkGrid = () => {
                 {artworks.map((artwork, index) => (
                     <div key={index}>
                         <h2 className="font-bold font-xl mb-4 text-pink-600">Artwork Number {index+1}</h2>
-                        <div className={ reveal[index] ? "hidden" : "bg-pink-600 h-96 w-full text-white p-4" }>
-                            <div className={ inProgress || reveal.some((value) => value === true) || reset ? 'hidden' : null}>
+                        <div className={ revealImage[index] ? "hidden" : "bg-pink-600 h-96 w-full text-white p-4" }>
+                            <div className={ inProgress || revealImage.some((value) => value === true) || reset ? 'hidden' : null}>
                                 <span className="font-bold">{artwork.answer ? 'Answer: "' : null}</span>
                                     {artwork.answer ? artwork.answer : null}
                                 <span className="mt-4 font-bold">{artwork.answer ? '"' : null}</span>
                             </div>
                             <form onSubmit={handleSubmit}>
                                 <input type="hidden" value={index} name="index"></input>
-                                <button className={reveal.some((value) => value === true) ? "rounded bg-white text-pink-600 p-2 hover:bg-gray-200" : "hidden" }>
+                                <button className={revealImage.some((value) => value === true) ? "rounded bg-white text-pink-600 p-2 hover:bg-gray-200" : "hidden" }>
                                     Reveal
                                 </button>
                             </form>
                         </div>
-                        <div className={ reveal[index] ? "" : "hidden" }>
+                        <div className={ revealImage[index] ? "" : "hidden" }>
                             <a href={`${baseUrl}.${artwork.objectID}.html`} target="_blank">
                                 <Image 
                                     src={ artwork.primaryImage }

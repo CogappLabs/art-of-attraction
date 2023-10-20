@@ -5,7 +5,7 @@ export const AppStateContext = createContext();
 export const AppStateProvider = ({ children }) => {
     const [remainingQuestions, setRemainingQuestions] = useState(3);
     const [inProgress, setInProgress] = useState(false);
-    const [reveal, setReveal] = useState([false, false, false]);
+    const [revealImage, setRevealImage] = useState([false, false, false]);
     const [disabled, setDisabled] = useState(false);
     const [reset, setReset] = useState(false);
     const [hideReset, setHideReset] = useState(true);
@@ -224,8 +224,8 @@ export const AppStateProvider = ({ children }) => {
                 setRemainingQuestions,
                 inProgress,
                 setInProgress,
-                reveal,
-                setReveal,
+                revealImage,
+                setRevealImage,
                 disabled,
                 setDisabled,
                 reset,
