@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { getAnswers } from '../utils/getAnswers';
-import FinalChoice from './FinalChoice'
+import FinalChoice from './FinalChoice'; 
 
 const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, counter, setCounter, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
     const [customOption, setCustomOption] = useState('');
+    const [isCustomOptionChecked, setIsCustomOptionChecked] = useState(false);
 
     const options = ['I love spending time looking at beautiful scenery, do you think I\'ll enjoy looking at you?', 
     'My home is filled with interesting objects that each have a unique story, do you think you\'d fit in there?', 
@@ -11,6 +12,7 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, co
 
     const handleCustomOptionChange = (event) => {
         setCustomOption(event.target.value);
+        setIsCustomOptionChecked(event.target.checked);
     };
 
     const handleSubmit = (event) => {
@@ -23,6 +25,7 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, co
         const selectedValue = formData.get('radioOptions');
 
         getAnswers(selectedValue, artworks, setArtworks, setIsInProgress, counter, setCounter);
+        setCustomOption('');
     };
 
     return (
@@ -60,7 +63,9 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, co
                                 id="customOptionInput"
                                 value={customOption}
                                 onChange={handleCustomOptionChange}
-                                className="ml-2"
+                                className="ml-2 p-0.5 w-60"
+                                required={isCustomOptionChecked}
+                                placeholder="e.g. Do you like piña coladas?"
                             />
                         </div>
                         <button type="submit" className={isInProgress ? 'rounded bg-pink-800 text-white p-2' : 'rounded bg-pink-600 text-white p-2 hover:bg-pink-800'} disabled={isInProgress ? true : false}>
@@ -88,3 +93,5 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, co
 };
 
 export default RadioOptions;
+
+

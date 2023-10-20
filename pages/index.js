@@ -13,21 +13,21 @@ export default function Home() {
   const [artworks, setArtworks] = useState([
     {
       "accessioned": "1",
-      "accessionnum": "1949.6.1",
-      "locationid": "",
-      "title": "Self-Portrait",
-      "displaydate": "c. 1630",
-      "beginyear": "1630",
-      "endyear": "1630",
+      "accessionnum": "1995.32.1",
+      "locationid": "8456",
+      "title": "Dishes with Oysters, Fruit, and Wine",
+      "displaydate": "c. 1620/1625",
+      "beginyear": "1620",
+      "endyear": "1625",
       "visualbrowsertimespan": "1601 to 1650",
-      "medium": "oil on canvas",
-      "dimensions": "overall: 74.6 × 65.1 cm (29 3/8 × 25 5/8 in.)\r\nframed: 99.7 × 91.12 × 8.89 cm (39 1/4 × 35 7/8 × 3 1/2 in.)",
+      "medium": "oil on panel",
+      "dimensions": "overall: 52.9 x 73.4 cm (20 13/16 x 28 7/8 in.)\r\nframed: 72.1 x 92.7 x 4.4 cm (28 3/8 x 36 1/2 x 1 3/4 in.)",
       "inscription": "",
       "markings": "",
-      "attributioninverted": "Leyster, Judith",
-      "attribution": "Judith Leyster",
-      "provenancetext": "Possibly the painting identified as a painting by Frans Hals depicting his daughter at the easel that appeared in four London sales between 1810 and 1812.[1] E.M. Grainger, Hastings, Sussex; Mrs. Granger, Bexhil-on-Sea, East Sussex;[2] (sale, Christie, Manson & Woods, London, 16 April 1926, no. 115); purchased by E. Smith, probably for a London dealer.[3] private collection, New York, in 1928.[4] (Ehrich Galleries, New York); purchased 9 May 1929 by Mr. and Mrs. Robert Woods Bliss, Washington, D.C.;[5] gift 1949 to NGA.\r\n\r\n\r\n[1] This suggestion was made by Burton Fredericksen. In a letter of 12 December 2002 to Arthur Wheelock (in NGA curatorial files) Fredericksen writes that the lack of recorded dimensions, the low price at which the painting was bought in, and the fact that it was part of a group of minor paintings prevent a firm conclusion, although paintings by Hals did not bring high prices at the beginning of the nineteenth century. For the first three sales, the painting was described as _The Portrait of F. Hals' Daughter_ by F. Hals; for the fourth sale it was _The Painter's Daughter at her Easel_, also by Hals.  The sales are as follows:  consigned by a Dr. Biam (or Byam) along with four other paintings to Christie's, London, 7 July 1810, no. 161, bought in; the same consignor to Christie's, London, 8 March 1811, no. 65, bought in; consigned by \"Pritchard\" to Christie's, London, 19 April 1811, no. 157; anonymous consignor to Peter Coxe, London, 3 June 1812, no. 28, bought in.\r\n\r\n[2] Lynda McLeod, Librarian, Christie’s Archives, kindly provided the name of the consignor; see her e-mail of 1 August 2012, in NGA curatorial files. Despite the slight difference in the spelling of the last name, E.M. Grainger and Mrs. Granger were likely related.\r\n\r\n[3] Information on this purchaser is from an annotated copy of the 1926 sale catalogue, and various articles in London papers giving the sale results; copies in NGA curatorial files.\r\n\r\n[4] The owner of the painting is identified in this way in Wilhelm R. Valentiner, \"Rediscovered Paintings by Frans Hals,\" _Art in America_ 16 (1928): 239, fig. 2.\r\n\r\n[5] The purchase date is in the donor's collection records for the painting, in NGA curatorial files.",
-      "creditline": "Gift of Mr. and Mrs. Robert Woods Bliss",
+      "attributioninverted": "Beert the Elder, Osias",
+      "attribution": "Osias Beert the Elder",
+      "provenancetext": "(Kunsthandel P. de Boer, Amsterdam); purchased 1952 by private collector, Sweden; by inheritance to his son, Sweden;[1] (sale, Sotheby's, London, 6 July 1994, no. 17); (Johnny Van Haeften, London); purchased 24 May 1995 by NGA.\r\n\r\n\r\n\r\n[1] Provenance according to 1994 Sotheby's sales catalogue.",
+      "creditline": "Patrons' Permanent Fund",
       "classification": "Painting",
       "subclassification": "",
       "visualbrowserclassification": "painting",
@@ -38,47 +38,53 @@ export default function Home() {
       "series": "",
       "volume": "",
       "watermarks": "",
-      "lastdetectedmodification": "2023-09-15 22:01:37.343-04",
-      "wikidataid": "Q18888002",
-      "customprinturl": "https://customprints.nga.gov/detail/461293/leyster-self-portrait-c.-1630",
+      "lastdetectedmodification": "2023-05-09 17:01:03.48-04",
+      "wikidataid": "Q20176984",
+      "customprinturl": "",
       "images": [
         {
-          "uuid": "440fe0d2-b4ca-4afc-a33e-2d4683ece38f",
-          "iiifurl": "https://api.nga.gov/iiif/440fe0d2-b4ca-4afc-a33e-2d4683ece38f",
-          "iiifthumburl": "https://api.nga.gov/iiif/440fe0d2-b4ca-4afc-a33e-2d4683ece38f/full/!200,200/0/default.jpg",
+          "uuid": "d345149c-3d2d-4ffa-84ce-1c9f788244fc",
+          "iiifurl": "https://api.nga.gov/iiif/d345149c-3d2d-4ffa-84ce-1c9f788244fc",
+          "iiifthumburl": "https://api.nga.gov/iiif/d345149c-3d2d-4ffa-84ce-1c9f788244fc/full/!200,200/0/default.jpg",
           "viewtype": "primary",
           "sequence": "0",
-          "width": "28841",
-          "height": "32922",
+          "width": "18397",
+          "height": "13224",
           "maxpixels": "",
-          "created": "2022-06-16 18:10:54-04",
-          "modified": "2023-09-15 22:27:18.41-04",
-          "depictstmsobjectid": "37003",
-          "assistivetext": "Shown from about the waist up, a woman with smooth, pale skin sits in a chair facing our right in front of a canvas on an easel in this vertical portrait. She leans onto her right elbow, which rests on the seat back. She turns her face to look at us, lips slightly parted. Her dress has a black bodice and a deep rose-pink skirt and sleeves. She wears a translucent white cap over her hair, which has been tightly pulled back. A stiff, white, plate-like ruff encircles her neck and reaches to her shoulders. She holds a paintbrush in her right hand and clutches about twenty brushes, a wooden paint palette, and a rag in her left hand, at the bottom right of the canvas. The painting behind her shows a man wearing robin's egg-blue and playing a violin."
+          "created": "2016-06-07 13:31:07-04",
+          "modified": "2023-07-26 11:05:42-04",
+          "depictstmsobjectid": "91389",
+          "assistivetext": "We look slightly down onto five plates, bowls, and dishes filled with oysters, raisins, prunes, figs, and sweets along with a wine glass and decanter, a stack of round, wooden boxes, and two seashells arrayed on a wooden tabletop against a dark background in this horizontal still life painting. Closest to us to our left, eleven glistening oysters on the halfshell are arranged on a round, iron-gray dish. Also close to us, to our right, a white porcelain bowl with a wide, flaring lip is painted with blue flowers, and it is piled with breads, rolls, and pastries. Two shells sit near that bowl: one shimmering, spiraling, ivory-white shell with brown marks sits to our left and an elongated, white shell with a ruffle along its length sits in the lower right corner of the panel. Between and behind these two dishes is a vessel with a pedestal foot and a wide, shallow bowl, filled with white almonds and rods that have been covered with white sugar. In the back left, a dark gray bowl holds raisins and other dried fruit along with an object that could be a slice of bread or cheese. Opposite it, a similar dish holds brown figs that more closely resemble chestnuts. To the back right, the lid of one of the three round, shallow boxes stacked along the right edge of the composition leans against the pile. The inner lid is covered with quince paste, which resembles apricot preserves. One glass goblet with a wide bowl is nearly filled with amber-colored liquid in the back left corner, beyond the dried fruit. A glass decanter, also filled with gold-colored wine, sits to our left of the pedestal-footed vessel holding the sugared sweets, at the center of the composition. The still life is brightly lit from our left."
         }
       ],
-      "primaryImage": "https://api.nga.gov/iiif/440fe0d2-b4ca-4afc-a33e-2d4683ece38f/full/!200,200/0/default.jpg",
-      "primaryImageHeight": "32922",
-      "primaryImageWidth": "28841",
-      "Systematic Catalogue Volume": [
-        "Dutch Paintings of the Seventeenth Century (NGA Online Editions)"
-      ],
-      "Style": [
-        "Baroque"
+      "primaryImage": "https://api.nga.gov/iiif/d345149c-3d2d-4ffa-84ce-1c9f788244fc/full/!200,200/0/default.jpg",
+      "primaryImageHeight": "13224",
+      "primaryImageWidth": "18397",
+      "Theme": [
+        "still life"
       ],
       "Keyword": [
-        "Leyster, Judith"
-      ],
-      "School": [
-        "Dutch"
-      ],
-      "Theme": [
-        "self"
+        "Almonds",
+        "Façon de Venise",
+        "Goblet",
+        "Oysters",
+        "Shells",
+        "Food",
+        "Fruit"
       ],
       "Technique": [
         "painted surface"
       ],
-      "objectID": "37003"
+      "Style": [
+        "Baroque"
+      ],
+      "School": [
+        "Flemish"
+      ],
+      "Systematic Catalogue Volume": [
+        "Flemish Paintings of the Seventeenth Century"
+      ],
+      "objectID": "91389"
     },
     {
         "accessioned": "1",
