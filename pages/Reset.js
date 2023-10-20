@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AppStateContext } from './AppState'
 
-const Reset = ({reveal, setReveal, remainingQuestions, setRemainingQuestions, reset, setReset, hideReset, setHideReset }) => {
+const Reset = () => {
+    const { reveal, setReveal, remainingQuestions, setRemainingQuestions, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
+
     const handleSubmit = (event) => {
         event.preventDefault();   
         

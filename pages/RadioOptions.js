@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { getAnswers } from '../utils/getAnswers';
 import FinalChoice from './FinalChoice'; 
+import { AppStateContext } from './AppState'
 
-const RadioOptions = ({ artworks, setArtworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
+const RadioOptions = () => {
+    const { artworks, setArtworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
+    
     const [customOption, setCustomOption] = useState('');
     const [isCustomOptionChecked, setIsCustomOptionChecked] = useState(false);
 
@@ -76,17 +79,7 @@ const RadioOptions = ({ artworks, setArtworks, inProgress, setInProgress, remain
             )}
             <p className={inProgress ? 'mb-4 text-pink-600 font-bold' : 'hidden'}>Please give the artworks some time to think of their replies... it may take some time.</p>
             {remainingQuestions === 'Final' && !inProgress && 
-                <FinalChoice 
-                    inProgress={inProgress} 
-                    reveal={reveal} 
-                    setReveal={setReveal} 
-                    disabled={disabled} 
-                    setDisabled={setDisabled} 
-                    reset={reset}
-                    setReset={setReset}  
-                    hideReset={hideReset}
-                    setHideReset={setHideReset}
-                />
+                <FinalChoice />
             }
         </div>
     );

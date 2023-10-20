@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import Image from 'next/image';
 import Reset from './Reset'
+import { AppStateContext } from './AppState'
 
-const ArtworkGrid = ({artworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
+const ArtworkGrid = () => {
+    const { artworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
     const baseUrl = "https://www.nga.gov/collection/art-object-page";
 
     const updateItemInReveal = (index, value) => {
@@ -58,7 +60,7 @@ const ArtworkGrid = ({artworks, inProgress, setInProgress, remainingQuestions, s
                 ))}
             </div>
 
-            { !hideReset && <Reset reveal={reveal} setReveal={setReveal} remainingQuestions={remainingQuestions} setRemainingQuestions={setRemainingQuestions} reset={reset} setReset={setReset} hideReset={hideReset} setHideReset={setHideReset}/> }
+            { !hideReset && <Reset /> }
         </>
     );
 };

@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AppStateContext } from './AppState'
 
-const FinalChoice = ({ inProgress, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
+const FinalChoice = () => {
+    const { inProgress, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
     const [finalChoice, setFinalChoice] = useState('');
 
     const finalOptions = ['Number 1', 'Number 2', 'Number 3'];
