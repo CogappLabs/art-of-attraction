@@ -33,26 +33,26 @@ const ArtworkGrid = () => {
                 {artworks.map((artwork, index) => (
                     <div key={index}>
                         <h2 className="font-bold font-xl mb-4 text-pink-600">Artwork Number {index+1}</h2>
-                        <div className={ revealImage[index] ? "hidden" : "bg-pink-600 h-96 w-full text-white p-4" }>
+                        <div className={ revealImage[index] ? "hidden" : "bg-pink-600 h-96 w-full text-white p-4 flex" }>
                             <div className={ inProgress || revealImage.some((value) => value === true) || reset ? 'hidden' : null}>
                                 <span className="font-bold">{artwork.answer ? 'Answer: "' : null}</span>
                                     {artwork.answer ? artwork.answer : null}
                                 <span className="mt-4 font-bold">{artwork.answer ? '"' : null}</span>
                             </div>
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit} className="self-center m-auto">
                                 <input type="hidden" value={index} name="index"></input>
                                 <button className={revealImage.some((value) => value === true) ? "rounded bg-white text-pink-600 p-2 hover:bg-gray-200" : "hidden" }>
                                     Reveal
                                 </button>
                             </form>
                         </div>
-                        <div className={ revealImage[index] ? "" : "hidden" }>
+                        <div className={ revealImage[index] ? "bg-pink-600 h-96 w-full p-4 flex items-center justify-center" : "hidden" }>
                             <a href={`${baseUrl}.${artwork.objectID}.html`} target="_blank">
                                 <Image 
                                     src={ artwork.primaryImage }
                                     alt=""
-                                    width={artwork.primaryImageWidth}
-                                    height={artwork.primaryImageHeight}
+                                    width="200"
+                                    height="140"
                                 />
                             </a>
                         </div>
