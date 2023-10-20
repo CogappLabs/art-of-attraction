@@ -8,8 +8,8 @@ const ArtworkGrid = ({artworks, isInProgress, setIsInProgress, reveal, setReveal
         <div className="grid grid-cols-3 gap-x-2">
             {artworks.map((artwork, index) => (
                 <div key={index}>
-                    <div className={ reveal ? "hidden" : "bg-pink-600 h-60 w-40" }></div>
-                    <div className={ reveal ? "" : "hidden" }>
+                    <div className={ reveal[index] ? "hidden" : "bg-pink-600 h-60 w-40" }></div>
+                    <div className={ reveal[index] ? "" : "hidden" }>
                         <Image 
                             src={ artwork.primaryImage }
                             alt=""

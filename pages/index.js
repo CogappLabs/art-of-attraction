@@ -5,7 +5,7 @@ import ArtworkGrid from './ArtworkGrid'
 export default function Home() {
   const [counter, setCounter] = useState(3);
   const [isInProgress, setIsInProgress] = useState(false);
-  const [reveal, setReveal] = useState(false);
+  const [reveal, setReveal] = useState([false, false, false]);
   const [artworks, setArtworks] = useState([
     {
       "accessioned": "1",

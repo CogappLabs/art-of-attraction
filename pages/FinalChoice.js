@@ -8,7 +8,18 @@ const FinalChoice = ({ isInProgress, reveal, setReveal }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        setReveal(true);
+        const formData = new FormData(event.target);
+        const selectedValue = formData.get('finalOptions');
+
+        if (selectedValue === 'Number 1') {
+            setReveal([true, false, false]);
+        } else if (selectedValue === 'Number 2') {
+            setReveal([false, true, false]);
+        } else {
+            setReveal([false, false, true]);
+        }
+
+        
     };
 
     const handleFinalChoiceChange = (event) => {
