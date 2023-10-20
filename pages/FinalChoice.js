@@ -2,11 +2,14 @@ import { useState } from 'react';
 
 const FinalChoice = ({ isInProgress, reveal, setReveal }) => {
     const [finalChoice, setFinalChoice] = useState('');
+    const [disabled, setDisabled] = useState(false);
 
     const finalOptions = ['Number 1', 'Number 2', 'Number 3'];
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        setDisabled(true);
 
         const formData = new FormData(event.target);
         const selectedValue = formData.get('finalOptions');
@@ -42,7 +45,7 @@ const FinalChoice = ({ isInProgress, reveal, setReveal }) => {
                         <label htmlFor={option} className="ml-2">{option}</label>
                     </div>
                 ))}
-                <button type="submit" className="rounded bg-pink-600 text-white p-2 hover:bg-pink-800">Submit</button>
+                <button type="submit" className={ disabled ? "rounded bg-pink-800 text-white p-2" : "rounded bg-pink-600 text-white p-2 hover:bg-pink-800" } disabled={disabled}>Submit</button>
             </form>
         </div>
     );
