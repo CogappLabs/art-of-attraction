@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { AppStateContext } from './AppState'
 
 const Reset = () => {
-    const { revealImage, setRevealImage, remainingQuestions, setRemainingQuestions, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
+    const { setRevealImage, setRemainingQuestions, setReset, setHideReset } = useContext(AppStateContext);
 
     const handleSubmit = (event) => {
         event.preventDefault();   
@@ -15,7 +15,7 @@ const Reset = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <button className="rounded bg-pink-600 text-white p-2 hover:bg-pink-800">Reset Game</button>
+            <button className="rounded bg-pink-600 text-white p-2 hover:bg-pink-800">Reset</button>
         </form>
     );
 

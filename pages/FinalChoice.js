@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { AppStateContext } from './AppState'
 
 const FinalChoice = () => {
-    const { inProgress, revealImage, setRevealImage, buttonDisabled, setButtonDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
+    const { inProgress, setRevealImage, buttonDisabled, setButtonDisabled, setHideReset } = useContext(AppStateContext);
     const [finalChoice, setFinalChoice] = useState('');
 
     const finalOptions = ['Number 1', 'Number 2', 'Number 3'];
