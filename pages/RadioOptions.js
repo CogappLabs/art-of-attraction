@@ -1,22 +1,16 @@
 import { useState } from 'react';
 import { getAnswers } from '../utils/getAnswers';
+import FinalChoice from './FinalChoice'
 
 const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, counter, setCounter }) => {
     const [customOption, setCustomOption] = useState('');
-    const [finalChoice, setFinalChoice] = useState('');
 
     const options = ['I love spending time looking at beautiful scenery, do you think I\'ll enjoy looking at you?', 
     'My home is filled with interesting objects that each have a story, do you think you\'d fit in there?', 
     'I\'m drawn to thought-provoking and emotionally charged art. Can you evoke strong feelings or reflections in me?'];
-    
-    const finalOptions = ['Number 1', 'Number 2', 'Number 3'];
 
     const handleCustomOptionChange = (event) => {
         setCustomOption(event.target.value);
-    };
-
-    const handleFinalChoiceChange = (event) => {
-        setFinalChoice(event.target.value);
     };
 
     const handleSubmit = (event) => {
@@ -75,26 +69,7 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, co
                 </div>
             )}
             <p className={isInProgress ? 'mb-4 text-pink-600 font-bold' : 'hidden'}>Please give the artworks some time to think of their replies... it may take some time.</p>
-            {(counter === 'Final' && !isInProgress) && (
-                <div>
-                    <form className={isInProgress ? 'hidden' : 'mb-4'}>
-                        <p>Will you pick <span className="text-pink-600 font-bold">Number 1</span>, <span className="text-pink-600 font-bold">Number 2</span>, or <span className="text-pink-600 font-bold">Number 3</span>? The choice is yours!</p>
-                        {finalOptions.map((option, index) => (
-                            <div key={index} className="mb-2">
-                                <input
-                                    type="radio"
-                                    id={option}
-                                    name="finalOptions"
-                                    value={option}
-                                    onChange={handleFinalChoiceChange}
-                                />
-                                <label htmlFor={option} className="ml-2">{option}</label>
-                            </div>
-                        ))}
-                        <button type="submit" className="rounded bg-pink-600 text-white p-2 hover:bg-pink-800">Submit</button>
-                    </form>
-                </div>
-            )}
+            {counter === 'Final' && !isInProgress && <FinalChoice isInProgress={isInProgress}/>}
         </div>
     );
 };
