@@ -6,7 +6,7 @@ export const AppStateProvider = ({ children }) => {
     const [remainingQuestions, setRemainingQuestions] = useState(3);
     const [inProgress, setInProgress] = useState(false);
     const [revealImage, setRevealImage] = useState([false, false, false]);
-    const [disabled, setDisabled] = useState(false);
+    const [buttonDisabled, setButtonDisabled] = useState(false);
     const [reset, setReset] = useState(false);
     const [hideReset, setHideReset] = useState(true);
 
@@ -226,8 +226,8 @@ export const AppStateProvider = ({ children }) => {
                 setInProgress,
                 revealImage,
                 setRevealImage,
-                disabled,
-                setDisabled,
+                buttonDisabled,
+                setButtonDisabled,
                 reset,
                 setReset,
                 hideReset,

@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { AppStateContext } from './AppState'
 
 const FinalChoice = () => {
-    const { inProgress, revealImage, setRevealImage, disabled, setDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
+    const { inProgress, revealImage, setRevealImage, buttonDisabled, setButtonDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
     const [finalChoice, setFinalChoice] = useState('');
 
     const finalOptions = ['Number 1', 'Number 2', 'Number 3'];
@@ -10,7 +10,7 @@ const FinalChoice = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        setDisabled(true);
+        setButtonDisabled(true);
         setHideReset(false);
 
         const formData = new FormData(event.target);
@@ -47,7 +47,7 @@ const FinalChoice = () => {
                         <label htmlFor={option} className="ml-2">{option}</label>
                     </div>
                 ))}
-                <button type="submit" className={ disabled ? "rounded bg-pink-800 text-white p-2" : "rounded bg-pink-600 text-white p-2 hover:bg-pink-800" } disabled={disabled}>Submit</button>
+                <button type="submit" className={ buttonDisabled ? "rounded bg-pink-800 text-white p-2" : "rounded bg-pink-600 text-white p-2 hover:bg-pink-800" } disabled={buttonDisabled}>Submit</button>
             </form>
         </div>
     );

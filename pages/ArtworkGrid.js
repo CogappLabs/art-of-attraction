@@ -4,7 +4,7 @@ import Reset from './Reset'
 import { AppStateContext } from './AppState'
 
 const ArtworkGrid = () => {
-    const { artworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, revealImage, setRevealImage, disabled, setDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
+    const { artworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, revealImage, setRevealImage, buttonDisabled, setButtonDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
     const baseUrl = "https://www.nga.gov/collection/art-object-page";
 
     const updateItemInRevealImage = (index, value) => {

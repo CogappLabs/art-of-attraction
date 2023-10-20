@@ -4,7 +4,7 @@ import FinalChoice from './FinalChoice';
 import { AppStateContext } from './AppState'
 
 const RadioOptions = () => {
-    const { artworks, setArtworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, revealImage, setRevealImage, disabled, setDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
+    const { artworks, setArtworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, revealImage, setRevealImage, buttonDisabled, setButtonDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
     
     const [customOption, setCustomOption] = useState('');
     const [isCustomOptionChecked, setIsCustomOptionChecked] = useState(false);
