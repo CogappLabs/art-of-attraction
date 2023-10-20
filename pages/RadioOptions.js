@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { getAnswers } from '../utils/getAnswers';
 import FinalChoice from './FinalChoice'; 
 
-const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, remainingQuestions, setRemainingQuestions, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
+const RadioOptions = ({ artworks, setArtworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
     const [customOption, setCustomOption] = useState('');
     const [isCustomOptionChecked, setIsCustomOptionChecked] = useState(false);
 
@@ -18,19 +18,19 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, re
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        setIsInProgress(true);
+        setInProgress(true);
         setReset(false);
 
         const formData = new FormData(event.target);
         const selectedValue = formData.get('radioOptions');
 
-        getAnswers(selectedValue, artworks, setArtworks, setIsInProgress, remainingQuestions, setRemainingQuestions);
+        getAnswers(selectedValue, artworks, setArtworks, setInProgress, remainingQuestions, setRemainingQuestions);
         setCustomOption('');
     };
 
     return (
         <div>
-            {(remainingQuestions !== 'Final' || (remainingQuestions === 'Final' && isInProgress)) && (
+            {(remainingQuestions !== 'Final' || (remainingQuestions === 'Final' && inProgress)) && (
                 <div>
                     <p className="mb-2">
                         <span className="text-pink-600 text-xl font-bold">{remainingQuestions !== 1 ? `${remainingQuestions} ` : 'Final '}</span>
@@ -68,16 +68,16 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, re
                                 placeholder="e.g. Do you like piña coladas?"
                             />
                         </div>
-                        <button type="submit" className={isInProgress ? 'rounded bg-pink-800 text-white p-2' : 'rounded bg-pink-600 text-white p-2 hover:bg-pink-800'} disabled={isInProgress ? true : false}>
+                        <button type="submit" className={inProgress ? 'rounded bg-pink-800 text-white p-2' : 'rounded bg-pink-600 text-white p-2 hover:bg-pink-800'} disabled={inProgress ? true : false}>
                             Ask Question
                         </button>
                     </form>
                 </div>
             )}
-            <p className={isInProgress ? 'mb-4 text-pink-600 font-bold' : 'hidden'}>Please give the artworks some time to think of their replies... it may take some time.</p>
-            {remainingQuestions === 'Final' && !isInProgress && 
+            <p className={inProgress ? 'mb-4 text-pink-600 font-bold' : 'hidden'}>Please give the artworks some time to think of their replies... it may take some time.</p>
+            {remainingQuestions === 'Final' && !inProgress && 
                 <FinalChoice 
-                    isInProgress={isInProgress} 
+                    inProgress={inProgress} 
                     reveal={reveal} 
                     setReveal={setReveal} 
                     disabled={disabled} 

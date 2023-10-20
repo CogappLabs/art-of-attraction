@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Reset from './Reset'
 
-const ArtworkGrid = ({artworks, isInProgress, setIsInProgress, remainingQuestions, setRemainingQuestions, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
+const ArtworkGrid = ({artworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
     const baseUrl = "https://www.nga.gov/collection/art-object-page";
 
     const updateItemInReveal = (index, value) => {
@@ -32,7 +32,7 @@ const ArtworkGrid = ({artworks, isInProgress, setIsInProgress, remainingQuestion
                     <div key={index}>
                         <h2 className="font-bold font-xl mb-4 text-pink-600">Artwork Number {index+1}</h2>
                         <div className={ reveal[index] ? "hidden" : "bg-pink-600 h-96 w-full text-white p-4" }>
-                            <div className={ isInProgress || reveal.some((value) => value === true) || reset ? 'hidden' : null}>
+                            <div className={ inProgress || reveal.some((value) => value === true) || reset ? 'hidden' : null}>
                                 <span className="font-bold">{artwork.answer ? 'Answer: "' : null}</span>
                                     {artwork.answer ? artwork.answer : null}
                                 <span className="mt-4 font-bold">{artwork.answer ? '"' : null}</span>

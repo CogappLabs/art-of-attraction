@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const FinalChoice = ({ isInProgress, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
+const FinalChoice = ({ inProgress, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
     const [finalChoice, setFinalChoice] = useState('');
 
     const finalOptions = ['Number 1', 'Number 2', 'Number 3'];
@@ -31,7 +31,7 @@ const FinalChoice = ({ isInProgress, reveal, setReveal, disabled, setDisabled, r
 
     return (
         <div>
-            <form onSubmit={handleSubmit} className={isInProgress ? 'hidden' : 'mb-4'}>
+            <form onSubmit={handleSubmit} className={inProgress ? 'hidden' : 'mb-4'}>
                 <p>Will you pick <span className="text-pink-600 font-bold">Number 1</span>, <span className="text-pink-600 font-bold">Number 2</span>, or <span className="text-pink-600 font-bold">Number 3</span>? The choice is yours!</p>
                 {finalOptions.map((option, index) => (
                     <div key={index} className="mb-2">

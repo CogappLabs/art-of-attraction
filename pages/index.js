@@ -4,7 +4,7 @@ import ArtworkGrid from './ArtworkGrid'
 
 export default function Home() {
   const [remainingQuestions, setRemainingQuestions] = useState(3);
-  const [isInProgress, setIsInProgress] = useState(false);
+  const [inProgress, setInProgress] = useState(false);
   const [reveal, setReveal] = useState([false, false, false]);
   const [disabled, setDisabled] = useState(false);
   const [reset, setReset] = useState(false);
@@ -225,8 +225,8 @@ export default function Home() {
       <RadioOptions 
         artworks={artworks} 
         setArtworks={setArtworks} 
-        isInProgress={isInProgress} 
-        setIsInProgress={setIsInProgress} 
+        inProgress={inProgress} 
+        setInProgress={setInProgress} 
         remainingQuestions={remainingQuestions} 
         setRemainingQuestions={setRemainingQuestions}
         reveal={reveal} 
@@ -239,7 +239,7 @@ export default function Home() {
         setHideReset={setHideReset}/>
       <ArtworkGrid 
         artworks={artworks} 
-        isInProgress={isInProgress} 
+        inProgress={inProgress} 
         remainingQuestions={remainingQuestions} 
         setRemainingQuestions={setRemainingQuestions}
         reveal={reveal} 
