@@ -3,7 +3,6 @@ import { AppStateContext } from './AppState'
 
 const FinalChoice = () => {
     const { inProgress, setRevealImage, buttonDisabled, setButtonDisabled, setHideReset } = useContext(AppStateContext);
-    const [finalChoice, setFinalChoice] = useState('');
 
     const finalOptions = ['Number 1', 'Number 2', 'Number 3'];
 
@@ -27,10 +26,6 @@ const FinalChoice = () => {
         
     };
 
-    const handleFinalChoiceChange = (event) => {
-        setFinalChoice(event.target.value);
-    };
-
     return (
         <div>
             <form onSubmit={handleSubmit} className={inProgress ? 'hidden' : 'mb-4'}>
@@ -42,7 +37,6 @@ const FinalChoice = () => {
                             id={option}
                             name="finalOptions"
                             value={option}
-                            onChange={handleFinalChoiceChange}
                         />
                         <label htmlFor={option} className="ml-2">{option}</label>
                     </div>
