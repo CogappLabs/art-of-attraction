@@ -3,7 +3,7 @@ import { getAnswers } from '../utils/getAnswers';
 import FinalChoice from './FinalChoice'; 
 import { AppStateContext } from './AppState'
 
-const RadioOptions = () => {
+const QuestionsRadio = () => {
     const { artworks, setArtworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, revealImage, setRevealImage, buttonDisabled, setButtonDisabled, reset, setReset, hideReset, setHideReset } = useContext(AppStateContext);
     
     const [customOption, setCustomOption] = useState('');
@@ -85,6 +85,6 @@ const RadioOptions = () => {
     );
 };
 
-export default RadioOptions;
+export default QuestionsRadio;
 
 
