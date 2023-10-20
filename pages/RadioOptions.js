@@ -6,7 +6,7 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, co
     const [customOption, setCustomOption] = useState('');
 
     const options = ['I love spending time looking at beautiful scenery, do you think I\'ll enjoy looking at you?', 
-    'My home is filled with interesting objects that each have a story, do you think you\'d fit in there?', 
+    'My home is filled with interesting objects that each have a unique story, do you think you\'d fit in there?', 
     'I\'m drawn to thought-provoking and emotionally charged art. Can you evoke strong feelings or reflections in me?'];
 
     const handleCustomOptionChange = (event) => {

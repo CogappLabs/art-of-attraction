@@ -3,10 +3,12 @@ import Image from 'next/image';
 import Reset from './Reset'
 
 const ArtworkGrid = ({artworks, isInProgress, setIsInProgress, counter, setCounter, reveal, setReveal, disabled, setDisabled, reset, setReset, hideReset, setHideReset }) => {
+    const baseUrl = "https://www.nga.gov/collection/art-object-page";
+
     const updateItemInReveal = (index, value) => {
         const updatedReveal = reveal.map((item, i) => (i === index ? value : item));
         setReveal(updatedReveal);
-      };
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -43,12 +45,14 @@ const ArtworkGrid = ({artworks, isInProgress, setIsInProgress, counter, setCount
                             </form>
                         </div>
                         <div className={ reveal[index] ? "" : "hidden" }>
-                            <Image 
-                                src={ artwork.primaryImage }
-                                alt=""
-                                width={artwork.primaryImageWidth}
-                                height={artwork.primaryImageHeight}
-                            />
+                            <a href={`${baseUrl}.${artwork.objectID}.html`} target="_blank">
+                                <Image 
+                                    src={ artwork.primaryImage }
+                                    alt=""
+                                    width={artwork.primaryImageWidth}
+                                    height={artwork.primaryImageHeight}
+                                />
+                            </a>
                         </div>
                     </div>
                 ))}

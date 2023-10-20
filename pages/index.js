@@ -13,67 +13,72 @@ export default function Home() {
   const [artworks, setArtworks] = useState([
     {
       "accessioned": "1",
-      "accessionnum": "2001.72.1",
+      "accessionnum": "1949.6.1",
       "locationid": "",
-      "title": "Tomorrow I May Be Far Away",
-      "displaydate": "1967",
-      "beginyear": "1967",
-      "endyear": "1967",
-      "visualbrowsertimespan": "1951 to 1975",
-      "medium": "collage of various papers with charcoal, graphite and paint on paper mounted to canvas",
-      "dimensions": "overall: 116.8 x 142.2 cm (46 x 56 in.)",
-      "inscription": "upper right: Romare Bearden",
+      "title": "Self-Portrait",
+      "displaydate": "c. 1630",
+      "beginyear": "1630",
+      "endyear": "1630",
+      "visualbrowsertimespan": "1601 to 1650",
+      "medium": "oil on canvas",
+      "dimensions": "overall: 74.6 × 65.1 cm (29 3/8 × 25 5/8 in.)\r\nframed: 99.7 × 91.12 × 8.89 cm (39 1/4 × 35 7/8 × 3 1/2 in.)",
+      "inscription": "",
       "markings": "",
-      "attributioninverted": "Bearden, Romare",
-      "attribution": "Romare Bearden",
-      "provenancetext": "(Cordier & Ekstrom Gallery, New York); (Dintenfass Gallery, New York); Estate of Robert Lang, Rye, New York; James D. Julia, Maine; (Michael Rosenfeld Gallery, New York); purchased 2001 by NGA.",
-      "creditline": "Paul Mellon Fund",
-      "classification": "Drawing",
+      "attributioninverted": "Leyster, Judith",
+      "attribution": "Judith Leyster",
+      "provenancetext": "Possibly the painting identified as a painting by Frans Hals depicting his daughter at the easel that appeared in four London sales between 1810 and 1812.[1] E.M. Grainger, Hastings, Sussex; Mrs. Granger, Bexhil-on-Sea, East Sussex;[2] (sale, Christie, Manson & Woods, London, 16 April 1926, no. 115); purchased by E. Smith, probably for a London dealer.[3] private collection, New York, in 1928.[4] (Ehrich Galleries, New York); purchased 9 May 1929 by Mr. and Mrs. Robert Woods Bliss, Washington, D.C.;[5] gift 1949 to NGA.\r\n\r\n\r\n[1] This suggestion was made by Burton Fredericksen. In a letter of 12 December 2002 to Arthur Wheelock (in NGA curatorial files) Fredericksen writes that the lack of recorded dimensions, the low price at which the painting was bought in, and the fact that it was part of a group of minor paintings prevent a firm conclusion, although paintings by Hals did not bring high prices at the beginning of the nineteenth century. For the first three sales, the painting was described as _The Portrait of F. Hals' Daughter_ by F. Hals; for the fourth sale it was _The Painter's Daughter at her Easel_, also by Hals.  The sales are as follows:  consigned by a Dr. Biam (or Byam) along with four other paintings to Christie's, London, 7 July 1810, no. 161, bought in; the same consignor to Christie's, London, 8 March 1811, no. 65, bought in; consigned by \"Pritchard\" to Christie's, London, 19 April 1811, no. 157; anonymous consignor to Peter Coxe, London, 3 June 1812, no. 28, bought in.\r\n\r\n[2] Lynda McLeod, Librarian, Christie’s Archives, kindly provided the name of the consignor; see her e-mail of 1 August 2012, in NGA curatorial files. Despite the slight difference in the spelling of the last name, E.M. Grainger and Mrs. Granger were likely related.\r\n\r\n[3] Information on this purchaser is from an annotated copy of the 1926 sale catalogue, and various articles in London papers giving the sale results; copies in NGA curatorial files.\r\n\r\n[4] The owner of the painting is identified in this way in Wilhelm R. Valentiner, \"Rediscovered Paintings by Frans Hals,\" _Art in America_ 16 (1928): 239, fig. 2.\r\n\r\n[5] The purchase date is in the donor's collection records for the painting, in NGA curatorial files.",
+      "creditline": "Gift of Mr. and Mrs. Robert Woods Bliss",
+      "classification": "Painting",
       "subclassification": "",
-      "visualbrowserclassification": "drawing",
+      "visualbrowserclassification": "painting",
       "parentid": "",
       "isvirtual": "0",
-      "departmentabbr": "CG-W",
+      "departmentabbr": "CNE-B",
       "portfolio": "",
       "series": "",
       "volume": "",
       "watermarks": "",
-      "lastdetectedmodification": "2023-05-09 17:01:03.48-04",
-      "wikidataid": "Q64629655",
-      "customprinturl": "https://customprints.nga.gov/detail/507077/bearden-tomorrow-i-may-be-far-away-1967",
+      "lastdetectedmodification": "2023-09-15 22:01:37.343-04",
+      "wikidataid": "Q18888002",
+      "customprinturl": "https://customprints.nga.gov/detail/461293/leyster-self-portrait-c.-1630",
       "images": [
         {
-          "uuid": "ff96f3bc-7f92-42f1-8836-a8c91b80fea9",
-          "iiifurl": "https://api.nga.gov/iiif/ff96f3bc-7f92-42f1-8836-a8c91b80fea9",
-          "iiifthumburl": "https://api.nga.gov/iiif/ff96f3bc-7f92-42f1-8836-a8c91b80fea9/full/!200,200/0/default.jpg",
+          "uuid": "440fe0d2-b4ca-4afc-a33e-2d4683ece38f",
+          "iiifurl": "https://api.nga.gov/iiif/440fe0d2-b4ca-4afc-a33e-2d4683ece38f",
+          "iiifthumburl": "https://api.nga.gov/iiif/440fe0d2-b4ca-4afc-a33e-2d4683ece38f/full/!200,200/0/default.jpg",
           "viewtype": "primary",
           "sequence": "0",
-          "width": "5669",
-          "height": "4682",
-          "maxpixels": "640",
-          "created": "2011-02-15 12:11:03-05",
-          "modified": "2023-07-26 10:44:37-04",
-          "depictstmsobjectid": "119052",
-          "assistivetext": "Made with mostly square or rectangular pieces of patterned paper in shades of asparagus and moss green, sky blue, tan, and ash brown, a man with brown skin sits in the center of this horizontal composition with a second person over his shoulder, in the upper left corner of this collage. The man’s facial features are a composite of cut-outs, mostly in shades of brown and gray, as if from black-and white photographs, and he smokes a cigarette. He sits with his body angled slightly to our right and he looks off in that direction, elbows resting on thighs and wrists crossed. His button-down shirt and pants, similarly collaged, are mottled with sky blue and white. One foot, on our right, is created with a cartoonish, shoe-shaped, black silhouette. The paper used for the other foot seems to have been scraped and scratched, creating the impression that that foot is bare. A tub, made of the same blue and white paper of the man’s suit, sits on the ground to our left, in the lower corner. The man sits in front of an expanse made up of green and brown pieces of paper patterned with wood grain, which could be a cabin. In a window in the upper left, a woman’s face, her features similarly collaged, looks out at us. One dark hand, large in relation to the people, rests on the sill with the fingers extended down the side of the house. The right third of the composition is filled collaged scraps of paper patterned to resemble leafy trees. Closer inspection reveals the form of a woman, smaller in scale than the other two, standing in that zone, facing our left in profile near a gray picket fence. She has a brown face, her hair wrapped in a patterned covering, and she holds a watermelon-sized, yellow fruit with brown stripes. Several blue birds and a red-winged blackbird fly and stand nearby. Above the woman and near the top of the composition, a train puffs along the top of what we read as the tops of trees. The artist signed the work in black letters in the upper right corner: “romare bearden.”"
+          "width": "28841",
+          "height": "32922",
+          "maxpixels": "",
+          "created": "2022-06-16 18:10:54-04",
+          "modified": "2023-09-15 22:27:18.41-04",
+          "depictstmsobjectid": "37003",
+          "assistivetext": "Shown from about the waist up, a woman with smooth, pale skin sits in a chair facing our right in front of a canvas on an easel in this vertical portrait. She leans onto her right elbow, which rests on the seat back. She turns her face to look at us, lips slightly parted. Her dress has a black bodice and a deep rose-pink skirt and sleeves. She wears a translucent white cap over her hair, which has been tightly pulled back. A stiff, white, plate-like ruff encircles her neck and reaches to her shoulders. She holds a paintbrush in her right hand and clutches about twenty brushes, a wooden paint palette, and a rag in her left hand, at the bottom right of the canvas. The painting behind her shows a man wearing robin's egg-blue and playing a violin."
         }
       ],
-      "primaryImage": "https://api.nga.gov/iiif/ff96f3bc-7f92-42f1-8836-a8c91b80fea9/full/!200,200/0/default.jpg",
-      "primaryImageHeight": "4682",
-      "primaryImageWidth": "5669",
-      "School": [
-        "American"
+      "primaryImage": "https://api.nga.gov/iiif/440fe0d2-b4ca-4afc-a33e-2d4683ece38f/full/!200,200/0/default.jpg",
+      "primaryImageHeight": "32922",
+      "primaryImageWidth": "28841",
+      "Systematic Catalogue Volume": [
+        "Dutch Paintings of the Seventeenth Century (NGA Online Editions)"
       ],
-      "Theme": [
-        "daily life",
-        "male"
+      "Style": [
+        "Baroque"
       ],
       "Keyword": [
-        "African American subject"
+        "Leyster, Judith"
+      ],
+      "School": [
+        "Dutch"
+      ],
+      "Theme": [
+        "self"
       ],
       "Technique": [
-        "collage"
+        "painted surface"
       ],
-      "objectID": "119052"
+      "objectID": "37003"
     },
     {
         "accessioned": "1",
@@ -207,9 +212,9 @@ export default function Home() {
   ]);
 
   return (
-    <div className="container mt-10 mx-auto mb-10">
-      <h1 className="mb-4 text-2xl font-bold text-pink-600">Blind Date</h1>
-      <p className="mb-2"><span className="font-bold text-pink-600">How to use:</span> Ask three hidden artworks three questions, then pick your favourite based on their answers!</p>
+    <div className="container mt-10 mx-auto mb-10 p-4">
+      <h1 className="mb-4 text-2xl font-bold text-pink-600">Art of Attraction</h1>
+      <p className="mb-2"><span className="font-bold text-pink-600">How to use:</span> Ask three hidden artworks three questions, then pick your favourite based on their replies!</p>
 
       <RadioOptions 
         artworks={artworks} 
