@@ -8,10 +8,9 @@ export default function Home() {
       <h1 className="mb-4 text-2xl font-bold text-pink-600">Art of Attraction</h1>
       <p className="mb-2">
         <span className="font-bold text-pink-600">
-          How to use:
+          How to use:&nbsp;
         </span> 
-        
-        Ask three hidden artworks three questions, then pick your favourite based on their replies!
+          Ask three hidden artworks three questions, then pick your favourite based on their replies!
       </p>
 
       <QuestionsRadio />
