@@ -1,4 +1,4 @@
-export const getAnswers = async (question, artworks, setArtworks, setIsInProgress) => {
+export const getAnswers = async (question, artworks, setArtworks, setIsInProgress, counter, setCounter) => {
     const apiKey = process.env.OPENAI_API_KEY;
 
     try {
@@ -39,6 +39,12 @@ export const getAnswers = async (question, artworks, setArtworks, setIsInProgres
     
       // Update the artworks array with the new key using setArtworks
       setArtworks(updatedArtworks);
+
+    if (counter > 1) {
+        setCounter(counter - 1);
+    } else if (counter === 1) {
+        setCounter('Final');
+    }
 
     console.log(data);
 

@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { getAnswers } from '../utils/getAnswers';
 
-const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress }) => {
+const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress, counter, setCounter }) => {
     const [customOption, setCustomOption] = useState('');
-    const [counter, setCounter] = useState(3);
     const [finalChoice, setFinalChoice] = useState('');
 
     const options = ['I love spending time looking at beautiful scenery, do you think I\'ll enjoy looking at you?', 
@@ -25,21 +24,15 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress }) 
 
         setIsInProgress(true);
 
-        if (counter > 1) {
-            setCounter(counter - 1);
-        } else if (counter === 1) {
-            setCounter('Final');
-        }
-
         const formData = new FormData(event.target);
         const selectedValue = formData.get('radioOptions');
 
-        getAnswers(selectedValue, artworks, setArtworks, setIsInProgress);
+        getAnswers(selectedValue, artworks, setArtworks, setIsInProgress, counter, setCounter);
     };
 
     return (
         <div>
-            {counter !== 'Final' && (
+            {(counter !== 'Final' || (counter === 'Final' && isInProgress)) && (
                 <div>
                     <p className="mb-2">
                         <span className="text-pink-600 text-xl font-bold">{counter !== 1 ? `${counter} ` : 'Final '}</span>
@@ -48,19 +41,25 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress }) 
                     <form onSubmit={handleSubmit} className="mb-4">
                         {options.map((option, index) => (
                             <div key={index} className="mb-2">
-                                <input type="radio" id={option} name="radioOptions" value={option} />
-                                <label htmlFor={option} className="ml-2">{option}</label>
+                                <label htmlFor={option}>
+                                    <input type="radio" id={option} name="radioOptions" value={option} className="mr-2" required/>
+                                    {option}
+                                </label>
                             </div>
                         ))}
                         <div className="mb-2">
-                            <input
-                                type="radio"
-                                id="customOption"
-                                name="radioOptions"
-                                value={customOption}
-                                onChange={handleCustomOptionChange}
-                            />
-                            <label htmlFor="customOption" className="ml-2">Other:</label>
+                            <label htmlFor="customOption">
+                                <input
+                                    type="radio"
+                                    id="customOption"
+                                    name="radioOptions"
+                                    value={customOption}
+                                    onChange={handleCustomOptionChange}
+                                    className="mr-2"
+                                    required
+                                />
+                                Other:
+                            </label>
                             <input
                                 type="text"
                                 id="customOptionInput"
@@ -69,16 +68,16 @@ const RadioOptions = ({ artworks, setArtworks, isInProgress, setIsInProgress }) 
                                 className="ml-2"
                             />
                         </div>
-                        <button type="submit" className="rounded bg-pink-600 text-white p-2 hover:bg-pink-800">
+                        <button type="submit" className={isInProgress ? 'rounded bg-pink-800 text-white p-2' : 'rounded bg-pink-600 text-white p-2 hover:bg-pink-800'} disabled={isInProgress ? true : false}>
                             Ask Question
                         </button>
-                        <p className={isInProgress ? 'mt-4 text-pink-600 font-bold' : 'hidden'}>Please give the artworks some time to think of their replies... it may take some time.</p>
                     </form>
                 </div>
             )}
-            {counter === 'Final' && (
+            <p className={isInProgress ? 'mb-4 text-pink-600 font-bold' : 'hidden'}>Please give the artworks some time to think of their replies... it may take some time.</p>
+            {(counter === 'Final' && !isInProgress) && (
                 <div>
-                    <form className="mb-4">
+                    <form className={isInProgress ? 'hidden' : 'mb-4'}>
                         <p>Will you pick <span className="text-pink-600 font-bold">Number 1</span>, <span className="text-pink-600 font-bold">Number 2</span>, or <span className="text-pink-600 font-bold">Number 3</span>? The choice is yours!</p>
                         {finalOptions.map((option, index) => (
                             <div key={index} className="mb-2">

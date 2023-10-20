@@ -3,6 +3,7 @@ import RadioOptions from './RadioOptions'
 import ArtworkGrid from './ArtworkGrid'
 
 export default function Home() {
+  const [counter, setCounter] = useState(3);
   const [isInProgress, setIsInProgress] = useState(false);
   const [artworks, setArtworks] = useState([
     {
@@ -205,7 +206,7 @@ export default function Home() {
       <h1 className="mb-4 text-2xl font-bold text-pink-600">Blind Date</h1>
       <p className="mb-2"><span className="font-bold text-pink-600">How to use:</span> Ask three hidden artworks three questions, then pick your favourite based on their answers!</p>
 
-      <RadioOptions artworks={artworks} setArtworks={setArtworks} isInProgress={isInProgress} setIsInProgress={setIsInProgress}/>
+      <RadioOptions artworks={artworks} setArtworks={setArtworks} isInProgress={isInProgress} setIsInProgress={setIsInProgress} counter={counter} setCounter={setCounter}/>
       <ArtworkGrid artworks={artworks} isInProgress={isInProgress}/>
 
     </div>
