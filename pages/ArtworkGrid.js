@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import Image from 'next/image';
 import Reset from './Reset'
-import { AppStateContext } from './AppState'
+import { AppStateContext } from '../context/AppState'
 
 const ArtworkGrid = () => {
     const { artworks, inProgress, revealImage, setRevealImage, reset, hideReset } = useContext(AppStateContext);

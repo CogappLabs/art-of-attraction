@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { getAnswers } from '../utils/getAnswers';
 import FinalChoice from './FinalChoice'; 
-import { AppStateContext } from './AppState'
+import { AppStateContext } from '../context/AppState'
 
 const QuestionsRadio = () => {
     const { artworks, setArtworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, setReset } = useContext(AppStateContext);

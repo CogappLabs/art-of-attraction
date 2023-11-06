@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { AppStateContext } from './AppState'
+import { AppStateContext } from '../context/AppState'
 
 const FinalChoice = () => {
     const { inProgress, setRevealImage, buttonDisabled, setButtonDisabled, setHideReset } = useContext(AppStateContext);
