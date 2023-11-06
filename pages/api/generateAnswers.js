@@ -20,8 +20,8 @@ export default async function handler(req, res) {
           const { title, attribution } = artworks[i];
           const promptProp = `Please answer the following question based on the themes of the painting "${title}" by "${attribution}". 
           Your answers should be in first person, as though it’s the painting itself that is answering. Don’t include any mention of the artwork 
-          title, the artists name, or describe anything about the painting itself. Simply use the painting as the inspiration for your answers.
-          Please keep your answer short and succint, and it can be a bit cheeky. Use simple language and don't address the asker with pet names.
+          title, the artists name, or describe anything specific about the painting itself. Simply use the painting as the inspiration for your answers.
+          Please keep your answer short and succint, and ideally a bit cheeky. Use simple language and don't address the interviewer with pet names.
           Question: ${prompt}`;
 
           const response = await openai.createChatCompletion({
