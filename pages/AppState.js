@@ -1,8 +1,8 @@
-import { createContext, useState } from 'react';
+import React, { createContext, useState } from 'react';
 
 export const AppStateContext = createContext();
 
-export const AppStateProvider = ({ children }) => {
+const AppStateProvider = ({ children }) => {
     const [remainingQuestions, setRemainingQuestions] = useState(3);
     const [inProgress, setInProgress] = useState(false);
     const [revealImage, setRevealImage] = useState([false, false, false]);
@@ -219,25 +219,28 @@ export const AppStateProvider = ({ children }) => {
 
     return (
         <AppStateContext.Provider
-            value={{
-                remainingQuestions,
-                setRemainingQuestions,
-                inProgress,
-                setInProgress,
-                revealImage,
-                setRevealImage,
-                buttonDisabled,
-                setButtonDisabled,
-                reset,
-                setReset,
-                hideReset,
-                setHideReset,
-                artworks,
-                setArtworks
-
-            }}
+        value={{
+            remainingQuestions,
+            setRemainingQuestions,
+            inProgress,
+            setInProgress,
+            revealImage,
+            setRevealImage,
+            buttonDisabled,
+            setButtonDisabled,
+            reset,
+            setReset,
+            hideReset,
+            setHideReset,
+            artworks,
+            setArtworks
+        }}
         >
-            {children}
+        {children}
         </AppStateContext.Provider>
     );
 };
+
+export { AppStateProvider };;
+
+export default AppStateContext;
