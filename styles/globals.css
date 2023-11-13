@@ -20,6 +20,11 @@ body {
   background: pink;
 }
 
+.answer-container {
+  font-family: "Edu TAS Beginner"; 
+  font-size: 20px;
+}
+
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
     position: absolute;

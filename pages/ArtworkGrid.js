@@ -35,9 +35,10 @@ const ArtworkGrid = () => {
                         <h2 className="font-bold font-xl mb-4 text-pink-600">Artwork Number {index+1}</h2>
                         <div className={ revealImage[index] ? "hidden" : "bg-pink-600 h-96 w-full text-white p-4 flex" }>
                             <div className={ inProgress || revealImage.some((value) => value === true) || reset ? 'hidden' : null}>
-                                <span className="font-bold">{artwork.answer ? 'Answer: "' : null}</span>
-                                    {artwork.answer ? artwork.answer : null}
-                                <span className="mt-4 font-bold">{artwork.answer ? '"' : null}</span>
+                                <span className="font-bold">{artwork.answer ? 'Answer: ' : null}</span>
+                                    <span className="font-bold answer-container">{artwork.answer ? '"' : null}</span>
+                                    <span className="answer-container">{artwork.answer ? artwork.answer : null}</span>
+                                <span className="mt-4 font-bold answer-container">{artwork.answer ? '"' : null}</span>
                             </div>
                             <form onSubmit={handleSubmit} className="self-center m-auto">
                                 <input type="hidden" value={index} name="index"></input>
