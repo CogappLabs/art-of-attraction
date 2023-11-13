@@ -54,6 +54,7 @@ const QuestionsRadio = () => {
                                         value={question} 
                                         className="mr-2" 
                                         required
+                                        disabled={inProgress ? true : false}
                                     />
                                     {question}
                                 </label>
@@ -69,6 +70,7 @@ const QuestionsRadio = () => {
                                     onChange={handleCustomQuestionChange}
                                     className="mr-2"
                                     required
+                                    disabled={inProgress ? true : false}
                                 />
                                 Other:
                             </label>
@@ -80,6 +82,7 @@ const QuestionsRadio = () => {
                                 className="ml-2 p-0.5 w-60"
                                 required={isCustomQuestionChecked}
                                 placeholder="e.g. Do you like piña coladas?"
+                                disabled={inProgress ? true : false}
                             />
                         </div>
                         <button type="submit" className={inProgress ? 'rounded bg-pink-800 text-white p-2' : 'rounded bg-pink-600 text-white p-2 hover:bg-pink-800'} disabled={inProgress ? true : false}>
