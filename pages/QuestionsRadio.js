@@ -7,6 +7,11 @@ const QuestionsRadio = () => {
     const { artworks, setArtworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, setReset } = useContext(AppStateContext);
     const inputRef = useRef();
     const customRef = useRef();
+    const [selectedOption, setSelectedOption] = useState(0);
+
+    const handleOptionChange = (index) => {
+        setSelectedOption(index);
+    };
     const [customQuestion, setCustomQuestion] = useState('');
     const [isCustomQuestionChecked, setIsCustomQuestionChecked] = useState(false);
 
@@ -18,6 +23,7 @@ const QuestionsRadio = () => {
         setCustomQuestion(event.target.value);
         setIsCustomQuestionChecked(event.target.checked);
         inputRef.current.focus();
+        setSelectedOption(questions.length+1);
     };
 
     const handleSubmit = (event) => {
@@ -48,33 +54,35 @@ const QuestionsRadio = () => {
                     <form onSubmit={handleSubmit} className="mb-4">
                         {questions.map((question, index) => (
                             <div key={index} className="mb-2">
-                                <label htmlFor={question}>
-                                    <input 
-                                        type="radio" 
-                                        id={question} 
-                                        name="radioOptions" 
-                                        value={question} 
-                                        className="mr-2" 
-                                        required
-                                        disabled={inProgress}
-                                    />
+                                <input 
+                                    type="radio" 
+                                    id={`question-${index}`} 
+                                    name="radioOptions" 
+                                    value={question} 
+                                    className="mr-2" 
+                                    required
+                                    disabled={inProgress}
+                                    checked={index === selectedOption}
+                                    onChange={() => handleOptionChange(index)}
+                                />
+                                <label htmlFor={`question-${index}`}>
                                     {question}
                                 </label>
                             </div>
                         ))}
                         <div className="mb-2">
+                            <input
+                                ref={customRef}
+                                type="radio"
+                                id="customQuestion"
+                                name="radioOptions"
+                                value={customQuestion}
+                                onChange={handleCustomQuestionChange}
+                                className="mr-2"
+                                required
+                                disabled={inProgress}
+                            />
                             <label htmlFor="customQuestion">
-                                <input
-                                    ref={customRef}
-                                    type="radio"
-                                    id="customQuestion"
-                                    name="radioOptions"
-                                    value={customQuestion}
-                                    onChange={handleCustomQuestionChange}
-                                    className="mr-2"
-                                    required
-                                    disabled={inProgress}
-                                />
                                 Other:
                             </label>
                             <input
