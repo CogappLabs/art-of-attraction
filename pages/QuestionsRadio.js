@@ -83,7 +83,7 @@ const QuestionsRadio = () => {
                             />
                         </div>
                         <button type="submit" className={inProgress ? 'rounded bg-pink-800 text-white p-2' : 'rounded bg-pink-600 text-white p-2 hover:bg-pink-800'} disabled={inProgress ? true : false}>
-                            Ask Question
+                            {inProgress ? 'Holding on for Love...' : 'Ask Question'}
                         </button>
                     </form>
                 </div>
