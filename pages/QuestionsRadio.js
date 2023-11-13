@@ -1,11 +1,12 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useRef } from 'react';
 import { getAnswers } from '../utils/getAnswers';
 import FinalChoice from './FinalChoice'; 
 import { AppStateContext } from '../context/AppState'
 
 const QuestionsRadio = () => {
     const { artworks, setArtworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, setReset } = useContext(AppStateContext);
-    
+    const inputRef = useRef();
+    const customRef = useRef();
     const [customQuestion, setCustomQuestion] = useState('');
     const [isCustomQuestionChecked, setIsCustomQuestionChecked] = useState(false);
 
@@ -16,6 +17,7 @@ const QuestionsRadio = () => {
     const handleCustomQuestionChange = (event) => {
         setCustomQuestion(event.target.value);
         setIsCustomQuestionChecked(event.target.checked);
+        inputRef.current.focus();
     };
 
     const handleSubmit = (event) => {
@@ -63,6 +65,7 @@ const QuestionsRadio = () => {
                         <div className="mb-2">
                             <label htmlFor="customQuestion">
                                 <input
+                                    ref={customRef}
                                     type="radio"
                                     id="customQuestion"
                                     name="radioOptions"
@@ -75,6 +78,7 @@ const QuestionsRadio = () => {
                                 Other:
                             </label>
                             <input
+                                ref={inputRef}
                                 type="text"
                                 id="customQuestionInput"
                                 value={customQuestion}
@@ -83,6 +87,9 @@ const QuestionsRadio = () => {
                                 required={isCustomQuestionChecked}
                                 placeholder="e.g. Do you like piña coladas?"
                                 disabled={inProgress}
+                                onFocus={() => {
+                                    customRef.current.checked = true;
+                                }}
                             />
                         </div>
                         <button type="submit" className={inProgress ? 'rounded bg-pink-800 text-white p-2' : 'rounded bg-pink-600 text-white p-2 hover:bg-pink-800'} disabled={inProgress}>
