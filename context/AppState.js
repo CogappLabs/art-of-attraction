@@ -9,6 +9,7 @@ const AppStateProvider = ({ children }) => {
     const [buttonDisabled, setButtonDisabled] = useState(false);
     const [reset, setReset] = useState(false);
     const [hideReset, setHideReset] = useState(true);
+    const [selectedOption, setSelectedOption] = useState(0);
 
     const [artworks, setArtworks] = useState([
         {
@@ -233,7 +234,9 @@ const AppStateProvider = ({ children }) => {
             hideReset,
             setHideReset,
             artworks,
-            setArtworks
+            setArtworks,
+            selectedOption,
+            setSelectedOption
         }}
         >
         {children}

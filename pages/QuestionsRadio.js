@@ -4,14 +4,14 @@ import FinalChoice from './FinalChoice';
 import { AppStateContext } from '../context/AppState'
 
 const QuestionsRadio = () => {
-    const { artworks, setArtworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, setReset } = useContext(AppStateContext);
+    const { artworks, setArtworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, setReset, selectedOption, setSelectedOption } = useContext(AppStateContext);
     const inputRef = useRef();
     const customRef = useRef();
-    const [selectedOption, setSelectedOption] = useState(0);
 
     const handleOptionChange = (index) => {
         setSelectedOption(index);
     };
+
     const [customQuestion, setCustomQuestion] = useState('');
     const [isCustomQuestionChecked, setIsCustomQuestionChecked] = useState(false);
 

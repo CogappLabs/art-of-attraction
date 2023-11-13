@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { AppStateContext } from '../context/AppState'
 
 const Reset = () => {
-    const { setRevealImage, setRemainingQuestions, setReset, setHideReset } = useContext(AppStateContext);
+    const { setRevealImage, setRemainingQuestions, setReset, setHideReset, setSelectedOption } = useContext(AppStateContext);
 
     const handleSubmit = (event) => {
         event.preventDefault();   
@@ -11,6 +11,7 @@ const Reset = () => {
         setRemainingQuestions(3);
         setReset(true);
         setHideReset(true);
+        setSelectedOption(0);
     };
 
     return (

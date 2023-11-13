@@ -5,6 +5,11 @@ const FinalChoice = () => {
     const { inProgress, setRevealImage, buttonDisabled, setButtonDisabled, setHideReset } = useContext(AppStateContext);
 
     const finalOptions = ['Number 1', 'Number 2', 'Number 3'];
+    const [selectedOption, setSelectedOption] = useState(0);
+
+    const handleOptionChange = (index) => {
+        setSelectedOption(index);
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -29,7 +34,7 @@ const FinalChoice = () => {
     return (
         <div>
             <form onSubmit={handleSubmit} className={inProgress ? 'hidden' : 'mb-4'}>
-                <p>Will you pick <span className="text-pink-600 font-bold">Number 1</span>, <span className="text-pink-600 font-bold">Number 2</span>, or <span className="text-pink-600 font-bold">Number 3</span>? The choice is yours!</p>
+                <p className='mb-2'>Will you pick <span className="text-pink-600 font-bold">Number 1</span>, <span className="text-pink-600 font-bold">Number 2</span>, or <span className="text-pink-600 font-bold">Number 3</span>? The choice is yours!</p>
                 {finalOptions.map((option, index) => (
                     <div key={index} className="mb-2">
                         <input
@@ -37,8 +42,11 @@ const FinalChoice = () => {
                             id={option}
                             name="finalOptions"
                             value={option}
+                            disabled={buttonDisabled}
+                            checked={index === selectedOption}
+                            onChange={() => handleOptionChange(index)}
                         />
-                        <label htmlFor={option} className="ml-2">{option}</label>
+                        <label htmlFor={option}>{option}</label>
                     </div>
                 ))}
                 <button type="submit" className={ buttonDisabled ? "rounded bg-pink-800 text-white p-2" : "rounded bg-pink-600 text-white p-2 hover:bg-pink-800" } disabled={buttonDisabled}>Submit</button>
