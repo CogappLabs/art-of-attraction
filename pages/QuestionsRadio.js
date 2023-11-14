@@ -4,7 +4,7 @@ import FinalChoice from './FinalChoice';
 import { AppStateContext } from '../context/AppState'
 
 const QuestionsRadio = () => {
-    const { artworks, setArtworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, setReset, selectedOption, setSelectedOption } = useContext(AppStateContext);
+    const { artworks, setArtworks, inProgress, setInProgress, remainingQuestions, setRemainingQuestions, setReset, selectedOption, setSelectedOption, questions, setQuestions, backupQuestions, setBackupQuestions } = useContext(AppStateContext);
     const inputRef = useRef();
     const customRef = useRef();
 
@@ -14,10 +14,6 @@ const QuestionsRadio = () => {
 
     const [customQuestion, setCustomQuestion] = useState('');
     const [isCustomQuestionChecked, setIsCustomQuestionChecked] = useState(false);
-
-    const questions = ['I love spending time looking at beautiful scenery, do you think I\'ll enjoy looking at you?', 
-    'My home is filled with interesting objects that each have a unique story, do you think you\'d fit in there?', 
-    'I\'m drawn to thought-provoking and emotionally charged art. Can you evoke strong feelings or reflections in me?'];
 
     const handleCustomQuestionChange = (event) => {
         setCustomQuestion(event.target.value);
@@ -35,7 +31,7 @@ const QuestionsRadio = () => {
         const formData = new FormData(event.target);
         const selectedValue = formData.get('radioOptions');
 
-        getAnswers(selectedValue, artworks, setArtworks, setInProgress, remainingQuestions, setRemainingQuestions);
+        getAnswers(selectedValue, artworks, setArtworks, setInProgress, remainingQuestions, setRemainingQuestions, selectedOption, questions, setQuestions, backupQuestions, setBackupQuestions);
         setCustomQuestion('');
     };
 

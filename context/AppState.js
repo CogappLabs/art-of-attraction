@@ -11,6 +11,17 @@ const AppStateProvider = ({ children }) => {
     const [hideReset, setHideReset] = useState(true);
     const [selectedOption, setSelectedOption] = useState(0);
     const [showConfetti, setShowConfetti] = useState(false);
+    const [questions, setQuestions ]= useState([
+        'I love spending time looking at beautiful scenery, do you think I\'ll enjoy looking at you?', 
+        'My home is filled with interesting objects that each have a unique story, do you think you\'d fit in there?', 
+        'I\'m drawn to thought-provoking and emotionally charged art. Can you evoke strong feelings or reflections in me?' 
+    ]);
+
+    const [backupQuestions, setBackupQuestions] = useState([        
+        "I find myself captivated by vibrant and lively atmospheres. Does your presence bring a burst of energy and color that could light up my space?",
+        "Quiet evenings with a good book are my sanctuary. Would your essence add to the tranquility and depth of such moments in my life?",
+        "I have a passion for stories and narratives that span different cultures and times. Do you carry tales or inspirations from far-off places or eras?"
+    ]);
 
     const [artworks, setArtworks] = useState([
         {
@@ -239,7 +250,11 @@ const AppStateProvider = ({ children }) => {
             selectedOption,
             setSelectedOption,
             showConfetti,
-            setShowConfetti
+            setShowConfetti,
+            questions,
+            setQuestions,
+            backupQuestions,
+            setBackupQuestions,
         }}
         >
         {children}

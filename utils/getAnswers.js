@@ -1,4 +1,4 @@
-export const getAnswers = async (question, artworks, setArtworks, setInProgress, remainingQuestions, setRemainingQuestions) => {
+export const getAnswers = async (question, artworks, setArtworks, setInProgress, remainingQuestions, setRemainingQuestions, selectedOption, questions, setQuestions, backupQuestions, setBackupQuestions) => {
     const apiKey = process.env.OPENAI_API_KEY;
 
     try {
@@ -49,6 +49,31 @@ export const getAnswers = async (question, artworks, setArtworks, setInProgress,
     console.log(data);
 
     setInProgress(false);
+
+    console.log(questions);
+
+    let nextQuestions = questions.filter(function (question) {
+        return question !== questions[selectedOption];
+    });
+
+    console.log(nextQuestions);
+
+    nextQuestions = [
+        ...nextQuestions.slice(0, selectedOption),
+        backupQuestions[0],
+        ...nextQuestions.slice(selectedOption)
+    ];
+
+    const nextBackupQuestions = backupQuestions.filter(function (question) {
+        return question !== backupQuestions[0];
+    });
+
+    setBackupQuestions(nextBackupQuestions);
+
+    console.log(backupQuestions);
+
+    setQuestions(nextQuestions);
+
 
     } catch (error) {
         console.error("Error:", error);
