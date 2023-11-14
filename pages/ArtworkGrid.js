@@ -29,11 +29,11 @@ const ArtworkGrid = () => {
 
     return (
         <>
-            <div className="grid grid-cols-3 gap-x-2 mb-4">
+            <div className="grid md:grid-cols-3 gap-x-2 mb-4">
                 {artworks.map((artwork, index) => (
                     <div key={index}>
                         <h2 className="font-bold font-xl mb-4 text-pink-600">Artwork Number {index+1}</h2>
-                        <div className={ revealImage[index] ? "hidden" : "bg-pink-600 h-96 w-full text-white p-4 flex" }>
+                        <div className={ revealImage[index] ? "hidden" : "bg-pink-600 min-h-[24rem] w-full text-white p-4 flex" }>
                             <div className={ inProgress || revealImage.some((value) => value === true) || reset ? 'hidden' : null}>
                                 <span className="font-bold">{artwork.answer ? 'Answer: ' : null}</span>
                                     <span className="font-bold answer-container">{artwork.answer ? '"' : null}</span>
@@ -47,7 +47,7 @@ const ArtworkGrid = () => {
                                 </button>
                             </form>
                         </div>
-                        <div className={ revealImage[index] ? "bg-pink-600 h-96 w-full p-4 flex items-center justify-center" : "hidden" }>
+                        <div className={ revealImage[index] ? "bg-pink-600 min-h-[24rem] w-full p-4 flex items-center justify-center" : "hidden" }>
                             <a href={`${baseUrl}.${artwork.objectID}.html`} target="_blank">
                                 <Image 
                                     src={ artwork.primaryImage }

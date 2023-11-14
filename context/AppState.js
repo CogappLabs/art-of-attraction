@@ -10,6 +10,7 @@ const AppStateProvider = ({ children }) => {
     const [reset, setReset] = useState(false);
     const [hideReset, setHideReset] = useState(true);
     const [selectedOption, setSelectedOption] = useState(0);
+    const [showConfetti, setShowConfetti] = useState(false);
 
     const [artworks, setArtworks] = useState([
         {
@@ -236,7 +237,9 @@ const AppStateProvider = ({ children }) => {
             artworks,
             setArtworks,
             selectedOption,
-            setSelectedOption
+            setSelectedOption,
+            showConfetti,
+            setShowConfetti
         }}
         >
         {children}

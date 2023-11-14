@@ -1,8 +1,9 @@
 import { useState, useContext } from 'react';
 import { AppStateContext } from '../context/AppState'
+import Confetti from 'react-confetti'
 
 const FinalChoice = () => {
-    const { inProgress, setRevealImage, buttonDisabled, setButtonDisabled, setHideReset } = useContext(AppStateContext);
+    const { inProgress, setRevealImage, buttonDisabled, setButtonDisabled, setHideReset, showConfetti, setShowConfetti } = useContext(AppStateContext);
 
     const finalOptions = ['Number 1', 'Number 2', 'Number 3'];
     const [selectedOption, setSelectedOption] = useState(0);
@@ -16,6 +17,7 @@ const FinalChoice = () => {
 
         setButtonDisabled(true);
         setHideReset(false);
+        setShowConfetti(true);
 
         const formData = new FormData(event.target);
         const selectedValue = formData.get('finalOptions');
@@ -51,6 +53,7 @@ const FinalChoice = () => {
                 ))}
                 <button type="submit" className={ buttonDisabled ? "rounded bg-pink-800 text-white p-2" : "rounded bg-pink-600 text-white p-2 hover:bg-pink-800" } disabled={buttonDisabled}>Submit</button>
             </form>
+            { showConfetti && <Confetti />}
         </div>
     );
 

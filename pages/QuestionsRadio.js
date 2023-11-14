@@ -107,7 +107,7 @@ const QuestionsRadio = () => {
                 </div>
             )}
             <p className={inProgress ? 'mb-4 text-pink-600 font-bold' : 'hidden'}>
-                Please give the artworks some time to think of their replies... it may take some time.
+                Please give the artworks some time to think of their replies... it may take a while.
             </p>
             {remainingQuestions === 'Final' && !inProgress && <FinalChoice />}
         </div>
