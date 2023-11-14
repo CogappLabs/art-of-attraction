@@ -6,11 +6,6 @@ const FinalChoice = () => {
     const { inProgress, setRevealImage, buttonDisabled, setButtonDisabled, setHideReset, showConfetti, setShowConfetti } = useContext(AppStateContext);
 
     const finalOptions = ['Number 1', 'Number 2', 'Number 3'];
-    const [selectedOption, setSelectedOption] = useState(0);
-
-    const handleOptionChange = (index) => {
-        setSelectedOption(index);
-    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -45,8 +40,6 @@ const FinalChoice = () => {
                             name="finalOptions"
                             value={option}
                             disabled={buttonDisabled}
-                            checked={index === selectedOption}
-                            onChange={() => handleOptionChange(index)}
                         />
                         <label htmlFor={option}>{option}</label>
                     </div>

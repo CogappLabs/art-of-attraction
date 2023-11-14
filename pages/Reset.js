@@ -11,7 +11,7 @@ const Reset = () => {
         setRemainingQuestions(3);
         setReset(true);
         setHideReset(true);
-        setSelectedOption(0);
+        setSelectedOption(undefined);
         setButtonDisabled(false);
         setShowConfetti(false);
 
