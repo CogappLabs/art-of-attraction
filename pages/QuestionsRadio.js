@@ -31,7 +31,7 @@ const QuestionsRadio = () => {
         const formData = new FormData(event.target);
         const selectedValue = formData.get('radioOptions');
 
-        getAnswers(selectedValue, artworks, setArtworks, setInProgress, remainingQuestions, setRemainingQuestions, selectedOption, questions, setQuestions, backupQuestions, setBackupQuestions);
+        getAnswers(selectedValue, artworks, setArtworks, setInProgress, remainingQuestions, setRemainingQuestions, selectedOption, setSelectedOption, questions, setQuestions, backupQuestions, setBackupQuestions);
         setCustomQuestion('');
     };
 

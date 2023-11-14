@@ -9,7 +9,7 @@ const AppStateProvider = ({ children }) => {
     const [buttonDisabled, setButtonDisabled] = useState(false);
     const [reset, setReset] = useState(false);
     const [hideReset, setHideReset] = useState(true);
-    const [selectedOption, setSelectedOption] = useState(0);
+    const [selectedOption, setSelectedOption] = useState(undefined);
     const [showConfetti, setShowConfetti] = useState(false);
     const [questions, setQuestions ]= useState([
         'I love spending time looking at beautiful scenery, do you think I\'ll enjoy looking at you?', 

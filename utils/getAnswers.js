@@ -1,4 +1,4 @@
-export const getAnswers = async (question, artworks, setArtworks, setInProgress, remainingQuestions, setRemainingQuestions, selectedOption, questions, setQuestions, backupQuestions, setBackupQuestions) => {
+export const getAnswers = async (question, artworks, setArtworks, setInProgress, remainingQuestions, setRemainingQuestions, selectedOption, setSelectedOption, questions, setQuestions, backupQuestions, setBackupQuestions) => {
     const apiKey = process.env.OPENAI_API_KEY;
 
     try {
@@ -73,6 +73,8 @@ export const getAnswers = async (question, artworks, setArtworks, setInProgress,
     console.log(backupQuestions);
 
     setQuestions(nextQuestions);
+
+    setSelectedOption(undefined);
 
 
     } catch (error) {
