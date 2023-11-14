@@ -15,9 +15,30 @@ const QuestionsRadio = () => {
     const [customQuestion, setCustomQuestion] = useState('');
     const [isCustomQuestionChecked, setIsCustomQuestionChecked] = useState(false);
 
-    const questions = ['I love spending time looking at beautiful scenery, do you think I\'ll enjoy looking at you?', 
-    'My home is filled with interesting objects that each have a unique story, do you think you\'d fit in there?', 
-    'I\'m drawn to thought-provoking and emotionally charged art. Can you evoke strong feelings or reflections in me?'];
+    const stagesQuestions = [
+        [
+          "I love spending time looking at beautiful scenery, do you think I'll enjoy looking at you?",
+          "My home is filled with interesting objects that each have a unique story, do you think you'd fit in there?",
+          "I'm drawn to thought-provoking and emotionally charged art. Can you evoke strong feelings or reflections in me?",
+        ],
+        [
+          "I find myself captivated by vibrant and lively atmospheres. Does your presence bring a burst of energy and color that could light up my space?",
+          "Quiet evenings with a good book are my sanctuary. Would your essence add to the tranquility and depth of such moments in my life?",
+          "I have a passion for stories and narratives that span different cultures and times. Do you carry tales or inspirations from far-off places or eras?",
+        ],
+        [
+          "I often seek solace in simplicity and minimalism. Do you embody a sense of calm and understated elegance that would resonate with my sense of peace?",
+          "My world is often filled with the hustle and bustle of the modern day. Can you provide a window to a different perspective, perhaps a slower, more thoughtful view of the world?",
+          "I am intrigued by mysteries and the unexplained. Do you hold secrets or layers of meaning that would challenge my curiosity and intellect?",
+        ],
+      ];
+    
+      // Calculate the current stage
+      // I'm sorry that the 4 is hardcoded here :(
+      const currentStage = 4 - remainingQuestions; // 3 -> 1, 2 -> 2, 1 -> 3
+    
+      // Select questions based on the current stage
+      const questions = stagesQuestions[currentStage - 1];
 
     const handleCustomQuestionChange = (event) => {
         setCustomQuestion(event.target.value);
