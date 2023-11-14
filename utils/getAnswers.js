@@ -50,29 +50,27 @@ export const getAnswers = async (question, artworks, setArtworks, setInProgress,
 
     setInProgress(false);
 
-    console.log(questions);
+    if (selectedOption === 0 || selectedOption === 1 || selectedOption === 2) {
+        let nextQuestions = questions.filter(function (question) {
+            return question !== questions[selectedOption];
+        });
+    
+        nextQuestions = [
+            ...nextQuestions.slice(0, selectedOption),
+            backupQuestions[0],
+            ...nextQuestions.slice(selectedOption)
+        ];
+    
+        const nextBackupQuestions = backupQuestions.filter(function (question) {
+            return question !== backupQuestions[0];
+        });
+    
+        setBackupQuestions(nextBackupQuestions);
+    
+        setQuestions(nextQuestions);
+    }
 
-    let nextQuestions = questions.filter(function (question) {
-        return question !== questions[selectedOption];
-    });
 
-    console.log(nextQuestions);
-
-    nextQuestions = [
-        ...nextQuestions.slice(0, selectedOption),
-        backupQuestions[0],
-        ...nextQuestions.slice(selectedOption)
-    ];
-
-    const nextBackupQuestions = backupQuestions.filter(function (question) {
-        return question !== backupQuestions[0];
-    });
-
-    setBackupQuestions(nextBackupQuestions);
-
-    console.log(backupQuestions);
-
-    setQuestions(nextQuestions);
 
     setSelectedOption(undefined);
 
