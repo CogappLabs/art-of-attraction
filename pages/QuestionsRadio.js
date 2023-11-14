@@ -10,6 +10,7 @@ const QuestionsRadio = () => {
 
     const handleOptionChange = (index) => {
         setSelectedOption(index);
+        setIsCustomQuestionChecked(false);
     };
 
     const [customQuestion, setCustomQuestion] = useState('');
