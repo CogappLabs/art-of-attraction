@@ -40,7 +40,7 @@ export default async function handler(req, res) {
       res.status(200).json(promptResponses);
 
     } catch (error) {
-        console.error('Error:', error);
-        res.status(500).json({ message: 'Internal Server Error' });
+      console.error('Error:', error.response ? error.response.data : error.message);
+      res.status(500).json({ message: 'Internal Server Error', error: error.response ? error.response.data : error.message });
     }
 }
