@@ -1,9 +1,8 @@
-const { Configuration, OpenAIApi } = require("openai");
+const OpenAI = require("openai");
 
-const configuration = new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const openai = new OpenAIApi(configuration);
 
 export default async function handler(req, res) {
   const { prompt, artworks } = req.body;
@@ -24,7 +23,7 @@ export default async function handler(req, res) {
           Please keep your answer short and succint, and ideally a bit cheeky. Use simple language and don't address the interviewer with pet names.
           Question: ${prompt}`;
 
-          const response = await openai.createChatCompletion({
+          const response = await openai.chat.completions.create({
               model: "gpt-3.5-turbo",
               max_tokens: 200,
               messages: [
@@ -33,14 +32,14 @@ export default async function handler(req, res) {
               ],
           });
 
-          const generatedResponse = response.data.choices[0].message.content;
+          const generatedResponse = response.choices[0].message.content;
           promptResponses.push(generatedResponse);
       }
 
       res.status(200).json(promptResponses);
 
     } catch (error) {
-      console.error('Error:', error.response ? error.response.data : error.message);
-      res.status(500).json({ message: 'Internal Server Error', error: error.response ? error.response.data : error.message });
+      console.error('Error:', error.message);
+      res.status(500).json({ message: 'Internal Server Error', error: error.message });
     }
 }
